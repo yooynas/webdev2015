@@ -10,7 +10,7 @@
 			</nav>
 		<div class="container">
 			<?php 
-				$this->load->view('/contenu/'.$contenu);
+				$this->load->view('/templates/contenu/'.$contenu);
 			?>
 		</div>
 <?php 

@@ -1,7 +1,6 @@
+	   
 	    <footer class="footer">
-	      <div class="container">
-	        <p class="text-muted">(c) Tous les cas sociaux de l'ifosup.</p>
-	      </div>
+	        <p class="text-center">(c) 2015</p>
 	    </footer>
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>
