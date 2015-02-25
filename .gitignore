@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 config.php
 database.php
+=======
+*DS_Store
+*DS_Store?
+*config.php
+*database.php
+>>>>>>> origin/master
