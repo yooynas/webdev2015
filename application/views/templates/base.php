@@ -7,7 +7,7 @@
 				<?php 
 					$this->load->view('/templates/parties/page_nav');
 				?>
-			</nav><p>test modif vue</p>
+			</nav>
 		<div class="container">
 			<?php 
 				$this->load->view('/templates/contenu/'.$contenu);
