@@ -1,4 +1,1 @@
 # webdev2015
-# Lol
-# TEST
-# LES PAPILLONS VERTS
