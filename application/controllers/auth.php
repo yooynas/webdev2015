@@ -21,12 +21,13 @@ class Auth extends CI_Controller
 
 	public function index() {
 		
-		echo 'Yeah !';
+		// Si aucune session n'existe, je rediriger vers les formulaires
+		if (!$this->session->userdata('id_user')) {
+			
+			$this->login();
+			
+		}
 		
-	}
-	
-	public function registration() {
-	    
 	}
 	
 	public function activation($username = '', $activation_key = '') {
@@ -34,6 +35,9 @@ class Auth extends CI_Controller
 	}
 	
 	public function login() {	
+
+		$data['contenu'] = 'auth/login';
+		$this->load->view('templates/base', $data);
 	    
 	}
 	

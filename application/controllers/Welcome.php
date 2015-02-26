@@ -24,7 +24,7 @@ class Welcome extends CI_Controller {
 	
 	public function index()
 	{
-		$data['contenu'] = 'accueil';
+		$data['contenu'] = 'auth/login_form.php';
 		$this->load->view('templates/base', $data);
 	}
 }
