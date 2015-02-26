@@ -1,0 +1,1 @@
+<div class="alert alert-danger" role="alert"><strong>Oups !</strong> Une erreur est survenue...</div>

@@ -10,11 +10,8 @@ class Auth extends CI_Controller
 		
 		// J'inclus mon modèle, mes librairies, mes helpers, fichiers de langues etc...
 		$this->load->database();
-		
 		$this->load->model('auth_model', 'AuthManager');
-		
-		$this->load->library(array('session','encrypt'));
-		
+		$this->load->library(array('session','encrypt','form_validation'));
 		$this->load->helper(array('url','form'));
 		
 	}
@@ -30,12 +27,80 @@ class Auth extends CI_Controller
 		
 	}
 	
-	public function activation($username = '', $activation_key = '') {
+	public function activation($activation_key = '') {
+		
+		// Je vérifie que les infos nécessaire à l'activation sont bien présents
+		if (!empty($activation_key)) {
+		
+			$data['key'] = htmlspecialchars($activation_key);
+			
+			// Je définis les délimiteurs pour l'affichage des erreurs
+			$this->form_validation->set_error_delimiters('<p style="color:#ad4442">', '</p>');
+				
+			// Je définis les règles de mes champs
+			$this->form_validation->set_rules('email', 'EMAIL', 'required');
+			$this->form_validation->set_rules('password', 'PASS', 'required');
+			$this->form_validation->set_rules('confirm_password', 'PASS2', 'required');
+
+			// Si le formulaire est correctement rempli
+			if($this->form_validation->run()) {
+				
+				// Je stock les infos de l'utilisateur dans des variables
+				$data = array();
+				$data['email'] = $this->input->post('email');
+				$data['password'] = $this->encrypt->encode($this->input->post('password'));
+				$data['key'] = htmlspecialchars($activation_key);
+				
+				// Je vérifie sur la clé et le mail match
+				if (!empty($this->AuthManager->check_activation_account($data['email'], $data['key']))) {
+					
+					// J'enregistre l'utilisateur dans la base de donnée
+					$this->AuthManager->activated_account($data['email'], $data['password']);
+					
+					echo 'Compte activé ';
+					
+				}
+				else {
+					$data['contenu'] = 'auth/forbidden';
+					$this->load->view('templates/base', $data);
+				}
+				
+			}
+				
+			$data['contenu'] = 'auth/register';
+			$this->load->view('templates/base', $data);
+			
+		}
+		else {
+			$data['contenu'] = 'auth/forbidden';
+			$this->load->view('templates/base', $data);
+		}
 		
 	}
 	
 	public function login() {	
-
+		
+		// Je définis les délimiteurs pour l'affichage des erreurs
+		$this->form_validation->set_error_delimiters('<p style="color:#ad4442">', '</p>');
+			
+		// Je définis les règles de mes champs
+		$this->form_validation->set_rules('email', '"email"', 'trim|required|max_length[255]|xss_clean|valid_email');
+		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[8]|max_length[55]|alpha_dash|xss_clean');
+		
+		// Si le formulaire est correctement rempli
+		if($this->form_validation->run()) {
+			
+			// Je stock les infos de l'utilisateur dans des variables
+			$data = array();
+			$data['email'] = $this->input->post('email');
+			$data['password'] = $this->input->post('password');
+			
+			
+			// Je récupère les infos du compte avec l'adresse email
+			$db_check_account = $this->AuthManager->check_account($data['email']);
+			
+		}
+		
 		$data['contenu'] = 'auth/login';
 		$this->load->view('templates/base', $data);
 	    
