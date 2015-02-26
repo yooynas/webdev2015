@@ -15,10 +15,14 @@ class Lessons extends CI_Controller {
 		$this->load->view('templates/base', $data);
 	}
 
-	public function ajouter()
+	public function ajouter($id = null)
 	{
-		$data['contenu'] = 'lessons/ajouter';
-		$this->load->view('templates/base', $data);
+		if(!isset($id))
+		{
+			$data['contenu']    = 'lessons/ajouter';
+			$data['categories'] = $this->M_lessons->get_categories();
+			$this->load->view('templates/base', $data);
+		}
 	}
 
 
