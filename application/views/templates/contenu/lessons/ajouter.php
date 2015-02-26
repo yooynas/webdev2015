@@ -7,14 +7,14 @@
   <div class="form-group">
     <label for="titre_lesson" class="col-sm-2 control-label">Titre</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="titre_lesson" placeholder="Titre de votre leçon">
+      <input type="text" class="form-control" id="titre_lesson" placeholder="Titre de votre leçon" value="<?=(isset($categories->name_lesson))?$categories->name_lesson:'kjh'?>">
     </div>
   </div>
 
   <div class="form-group">
     <label for="contenu_lesson" class="col-sm-2 control-label">Contenu</label>
     <div class="col-sm-10">
-      <textarea class="form-control" rows="3" id="contenu_lesson"></textarea>
+      <textarea class="form-control" rows="3" id="contenu_lesson"><?=(isset($content))?$content->description_lesson:''?></textarea>
     </div>
   </div>
 

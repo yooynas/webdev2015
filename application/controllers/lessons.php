@@ -23,6 +23,12 @@ class Lessons extends CI_Controller {
 			$data['categories'] = $this->M_lessons->get_categories();
 			$this->load->view('templates/base', $data);
 		}
+		else
+		{
+			$data['contenu'] = 'lessons/ajouter';
+			$data['categories'] = $this->M_lessons->get_lessons($id);
+			$this->load->view('templates/base', $data);
+		}
 	}
 
 

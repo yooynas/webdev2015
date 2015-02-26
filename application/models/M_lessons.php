@@ -14,6 +14,12 @@ class M_lessons extends CI_Model {
         return $query->result();
     }
 
+    function get_lessons($id)
+    {
+        $query = $this->db->get_where('lessons', ['id_lesson' => $id]);
+        return $query->result();
+    }
+
 }
 
 /* End of file lessons.php */
