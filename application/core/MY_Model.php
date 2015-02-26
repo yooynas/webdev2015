@@ -1,9 +1,9 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 class MY_Model extends CI_Model {
     public $table_name = '';
     public $primary_key = '';
     public $table_order = '';
-    public $filter = 'intval'; // à utiliser avec array_map comme paramètre pour modifier les valeurs d'un tableau
+    public $filter = 'intval';
     
     function __construct() {
         parent::__construct();
