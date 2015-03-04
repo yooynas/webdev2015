@@ -51,8 +51,10 @@ class Auth extends CI_Controller
 				$data['password'] = $this->encrypt->encode($this->input->post('password'));
 				$data['key'] = htmlspecialchars($activation_key);
 				
+				$check_account = $this->AuthManager->check_activation_account($data['email'], $data['key']);
+				
 				// Je vérifie sur la clé et le mail match
-				if (!empty($this->AuthManager->check_activation_account($data['email'], $data['key']))) {
+				if (!empty($check_account)) {
 					
 					// J'enregistre l'utilisateur dans la base de donnée
 					$this->AuthManager->activated_account($data['email'], $data['password']);
