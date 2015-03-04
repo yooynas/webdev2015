@@ -11,7 +11,8 @@ class Lessons extends CI_Controller {
 	public function index()
 	{
 		$data['contenu'] = 'lessons/index';
-		$data['lessons'] = $this->M_lessons->get_all();
+		//$data['lessons'] = $this->M_lessons->get_all();
+		$data['lessons'] = $this->M_lessons->get();
 		$this->load->view('templates/base', $data);
 	}
 
@@ -26,7 +27,7 @@ class Lessons extends CI_Controller {
 		else
 		{
 			$data['contenu']    = 'lessons/ajouter';
-			$data['categories'] = $this->M_lessons->get_lessons($id);
+			//$data['categories'] = $this->M_lessons->get_lessons($id);
 			$this->load->view('templates/base', $data);
 		}
 	}
