@@ -19,6 +19,9 @@ class Chapter extends CI_Controller
 		
 		
 	}
+	public function add_chapter() {
+		$this->load->view('chapter_add_new');
+	}
 //	public function module()
 //	{
 //		$data['modules'] = $this->M_chapter->get();
