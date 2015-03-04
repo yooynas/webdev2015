@@ -9,7 +9,7 @@ class M_lessons extends MY_Model {
         $this->primary_key = 'id_lesson';
         $this->table_order = 'id_lesson DESC';
     }
-    /*
+    
     function get_all()
     {
         $query = $this->db->get('lessons');
@@ -27,7 +27,7 @@ class M_lessons extends MY_Model {
         $query = $this->db->get_where('lessons', ['id_lesson' => $id]);
         return $query->result();
     }
-    */
+    
 
 }
 

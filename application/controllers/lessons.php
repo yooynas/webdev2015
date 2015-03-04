@@ -4,8 +4,11 @@ class Lessons extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		//$this->load->database();
+		/*
+			Chargement des modèles
+		*/
 		$this->load->model('M_lessons');
+		$this->load->model('M_category');
 	}
 
 	public function index()
@@ -21,13 +24,14 @@ class Lessons extends CI_Controller {
 		if(!isset($id))
 		{
 			$data['contenu']    = 'lessons/ajouter';
-			//$data['categories'] = $this->M_lessons->get_categories();
+			$data['categories'] = $this->M_category->get();
 			$this->load->view('templates/base', $data);
 		}
 		else
 		{
 			$data['contenu']    = 'lessons/ajouter';
-			//$data['categories'] = $this->M_lessons->get_lessons($id);
+			$data['content']    = $this->M_lessons->get_by('id_lesson', $id, NULL, TRUE);
+			$data['categories'] = $this->M_category->get_by('id_category', $id, NULL, TRUE);
 			$this->load->view('templates/base', $data);
 		}
 	}
