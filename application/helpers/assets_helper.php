@@ -20,7 +20,7 @@ if ( ! function_exists('img_url')) {
 }
 if ( ! function_exists('img')) {
     function img($nom,$alt='') {
-        return '<img src="'.img_url($nom).'" alt="'.$alt.'" />';   
+        return '<img class="img-responsive" src="'.img_url($nom).'" alt="'.$alt.'" />';   
     }
 }
 ?>
