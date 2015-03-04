@@ -5,12 +5,15 @@ class Modules extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_module');
+        $this->load->controller('chapter');
 	}
     
 	public function index()
 	{
-		$get = $this->M_module->get();
-        var_dump($get);
+        
+        $this->  
+		
+        
 	}
 }
 

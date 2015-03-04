@@ -36,6 +36,11 @@ class M_module extends MY_Model {
         
     }
     
+    public function getmodules() {
+        $listmodules = $this->M_module->get();
+        
+    }
+    
 }
 
 
