@@ -9,6 +9,7 @@ class Chapter extends CI_Controller
 	}
 	public function index()
 	{
+		
 		$data['contenu'] = '/chapter/V_chapter';
 		$data['chapter'] = $this->M_chapter->get();
 		$data['modules'] = $this->M_module->get();
@@ -18,9 +19,9 @@ class Chapter extends CI_Controller
 		
 		
 	}
-	public function module()
-	{
-		$data['modules'] = $this->M_chapter->get();
-	}
+//	public function module()
+//	{
+//		$data['modules'] = $this->M_chapter->get();
+//	}
 }
 ?>

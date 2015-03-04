@@ -1,4 +1,4 @@
-
+<?php
 //class M_chapter extends CI_Model 
 //{
 //	function get_chapter()
@@ -13,6 +13,7 @@
 //	}
 //	
 //}
+?>
 <?php
 class M_chapter extends MY_Model {
     function __construct() {
