@@ -89,7 +89,7 @@ class Auth extends CI_Controller
 			
 		// Je définis les règles de mes champs
 		$this->form_validation->set_rules('email', '"email"', 'trim|required|max_length[255]|valid_email');
-		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[8]|max_length[55]|alpha_dash');
+		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[5]|max_length[55]|alpha_dash');
 		
 		// Si le formulaire est correctement rempli
 		if($this->form_validation->run()) {
