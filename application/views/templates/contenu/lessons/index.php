@@ -8,7 +8,7 @@
 	      		<div class="caption">
 	        		<h3><?=$lesson['name_lesson']?></h3>
 	        		<p><?=$lesson['description_lesson']?></p>
-	        		<p><a href="<?=base_url("chapter")?>/<?=$lesson['id_lesson']?>" class="btn btn-primary" role="button">Voir</a></p>
+	        		<p><a href="<?=base_url("chapter")?>/<?=$lesson['id_lesson']?>/<?=$lesson['fk_category_lesson']?>" class="btn btn-primary" role="button">Voir</a></p>
 	      		</div>
 	    	</div>
 	    </div>

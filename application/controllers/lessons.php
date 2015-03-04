@@ -19,7 +19,7 @@ class Lessons extends CI_Controller {
 		$this->load->view('templates/base', $data);
 	}
 
-	public function ajouter($id = null)
+	public function ajouter($id = null,$id_cat = null)
 	{
 		if(!isset($id))
 		{
@@ -31,7 +31,7 @@ class Lessons extends CI_Controller {
 		{
 			$data['contenu']    = 'lessons/ajouter';
 			$data['content']    = $this->M_lessons->get_by('id_lesson', $id, NULL, TRUE);
-			$data['categories'] = $this->M_category->get_by('id_category', $id, NULL, TRUE);
+			$data['categories'] = $this->M_category->get_by('id_category', $id_cat, NULL, TRUE);
 			$this->load->view('templates/base', $data);
 		}
 	}
