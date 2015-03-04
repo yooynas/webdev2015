@@ -21,4 +21,4 @@ foreach ($chapter as $i)
 	}
 }
 ?>
-<div><a href="<?= base_url ?>"></a></div>
+<div><a href="<?= base_url().'index.php/add_new_chapter' ?>">Ajouter un nouveaux chapitre</a></div>
