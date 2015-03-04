@@ -8,6 +8,11 @@ class Modules extends CI_Controller
         $this->load->controller('chapter');
 	}
     
+    public function getmodules {
+        $listmodules = $this->M_module->get();
+        
+    }
+    
 	public function index()
 	{
         
