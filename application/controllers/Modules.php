@@ -5,20 +5,17 @@ class Modules extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_module');
-        $this->load->controller('chapter');
 	}
     
-    public function getmodules {
+    public function getmodules() {
         $listmodules = $this->M_module->get();
+        var_dump($listmodules);
         
     }
-    
-	public function index()
-	{
         
-        $this->  
-		
-        
+	public function index() {        
+        $this->getmodules();  
+
 	}
 }
 
