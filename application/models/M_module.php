@@ -24,6 +24,7 @@
     }
 
 */
+
 class M_module extends MY_Model {
     function __construct() {
         parent::__construct();
@@ -35,9 +36,6 @@ class M_module extends MY_Model {
         
     }
     
-    `$get = $this->get();
-    
-     var_dump($get);`
 }
 
 
