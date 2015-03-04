@@ -5,7 +5,13 @@
 	<body>
 			<nav class="navbar navbar-default">
 				<?php 
-					$this->load->view('/templates/parties/page_nav');
+					// J'affiche une navigation en fonction de si l'utilisateur est connecté ou non
+					if (!$this->session->userdata('id')) { 
+						$this->load->view('/templates/parties/page_nav');
+					}
+					else {
+						$this->load->view('/templates/parties/page_nav_logged');
+					}
 				?>
 			</nav>
 		<div class="container">

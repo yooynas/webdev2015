@@ -1,5 +1,5 @@
 <?php
-class M_chapter extends CI_Model 
+class M_chapter extends MY_Model 
 {
 	function get_chapter()
 	{
