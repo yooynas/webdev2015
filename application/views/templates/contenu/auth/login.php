@@ -1,8 +1,13 @@
-<?php if(!empty($this->session->flashdata('alert'))) : ?>
+<?php 
+	$alert = $this->session->flashdata('alert');
+	if(!empty($alert)) : 
+?>
 	<div class="alert alert-success" role="alert"><?=$this->session->flashdata('alert')?></div>
 <?php endif; ?>
 
-<?php if(!empty($this->session->flashdata('error'))) : ?>
+<?php 
+	$error = $this->session->flashdata('error');
+	if(!empty($error)) : ?>
 	<div class="alert alert-danger" role="alert"><?=$this->session->flashdata('error')?></div>
 <?php endif; ?>
 
