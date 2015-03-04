@@ -38,9 +38,9 @@ class Auth extends CI_Controller
 			$this->form_validation->set_error_delimiters('<p style="color:#ad4442">', '</p>');
 				
 			// Je définis les règles de mes champs
-			$this->form_validation->set_rules('email', 'EMAIL', 'required');
-			$this->form_validation->set_rules('password', 'PASS', 'required');
-			$this->form_validation->set_rules('confirm_password', 'PASS2', 'required');
+			$this->form_validation->set_rules('email', 'Adresse email', 'trim|required|max_length[100]|valid_email');
+			$this->form_validation->set_rules('password', 'Mot de passe', 'trim|required|min_length[5]|max_length[50]');
+			$this->form_validation->set_rules('confirm_password', 'Confirmez le mot de passe', 'trim|required|min_length[5]|max_length[50]|matches[password]');
 
 			// Si le formulaire est correctement rempli
 			if($this->form_validation->run()) {
@@ -57,7 +57,9 @@ class Auth extends CI_Controller
 					// J'enregistre l'utilisateur dans la base de donnée
 					$this->AuthManager->activated_account($data['email'], $data['password']);
 					
-					echo 'Compte activé ';
+					// Je prépare le message de succès et je redirige vers la liste des pizzas
+					$this->session->set_flashdata('alert', 'Compte validé ! Vous pouvez vous connecter !');
+					redirect('/auth/login', 'refresh');
 					
 				}
 				else {
@@ -84,8 +86,8 @@ class Auth extends CI_Controller
 		$this->form_validation->set_error_delimiters('<p style="color:#ad4442">', '</p>');
 			
 		// Je définis les règles de mes champs
-		$this->form_validation->set_rules('email', '"email"', 'trim|required|max_length[255]|xss_clean|valid_email');
-		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[8]|max_length[55]|alpha_dash|xss_clean');
+		$this->form_validation->set_rules('email', '"email"', 'trim|required|max_length[255]|valid_email');
+		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[8]|max_length[55]|alpha_dash');
 		
 		// Si le formulaire est correctement rempli
 		if($this->form_validation->run()) {
@@ -94,7 +96,6 @@ class Auth extends CI_Controller
 			$data = array();
 			$data['email'] = $this->input->post('email');
 			$data['password'] = $this->input->post('password');
-			
 			
 			// Je récupère les infos du compte avec l'adresse email
 			$db_check_account = $this->AuthManager->check_account($data['email']);
@@ -107,6 +108,10 @@ class Auth extends CI_Controller
 	}
 	
 	public function logout() {
+		  
+		$this->session->sess_destroy();
+		
+		redirect('auth/login', 'refresh');
 	    
 	}
 	
