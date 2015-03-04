@@ -7,7 +7,7 @@
   <div class="form-group">
     <label for="titre_lesson" class="col-sm-2 control-label">Titre</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="titre_lesson" placeholder="Titre de votre leçon" value="<?=(isset($categories->name_lesson))?$categories->name_lesson:'kjh'?>">
+      <input type="text" class="form-control" id="titre_lesson" placeholder="Titre de votre leçon" value="<?=(isset($categories->name_lesson))?$categories->name_lesson:''?>">
     </div>
   </div>
 
@@ -22,9 +22,11 @@
     <label for="categorie_lesson" class="col-sm-2 control-label">Categorie</label>
     <div class="col-sm-10">
 		<select class="form-control">
-			<?php foreach($categories as $cat):?>
-		  		<option><?=$cat->name_category?></option>
-		  	<?php endforeach; ?>
+      <?php if($categories): ?>
+  			<?php foreach($categories as $cat):?>
+  		  		<option><?=$cat->name_category?></option>
+  		  	<?php endforeach; ?>
+      <?php endif; ?>
 		</select>
     </div>
   </div>

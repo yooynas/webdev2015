@@ -20,19 +20,16 @@ class Lessons extends CI_Controller {
 		if(!isset($id))
 		{
 			$data['contenu']    = 'lessons/ajouter';
-			$data['categories'] = $this->M_lessons->get_categories();
+			//$data['categories'] = $this->M_lessons->get_categories();
 			$this->load->view('templates/base', $data);
 		}
 		else
 		{
-			$data['contenu'] = 'lessons/ajouter';
+			$data['contenu']    = 'lessons/ajouter';
 			$data['categories'] = $this->M_lessons->get_lessons($id);
 			$this->load->view('templates/base', $data);
 		}
 	}
-
-
-
 }
 
 /* End of file lessons.php */
