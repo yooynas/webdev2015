@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
 class M_chapter extends MY_Model 
 {
 	function get_chapter()
@@ -13,7 +13,7 @@ class M_chapter extends MY_Model
 		return $results;
 	}
 	
-=======
+
 //class M_chapter extends CI_Model 
 //{
 //	function get_chapter()
@@ -38,7 +38,5 @@ class M_chapter extends MY_Model {
         $this->primary_key = 'id_chapter';
         $this->table_order = 'id_chapter DESC';
     }
->>>>>>> origin/master
 }
 
-?>
