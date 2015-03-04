@@ -5,17 +5,22 @@ class Chapter extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_chapter');
+		$this->load->model('M_module');
 	}
 	public function index()
 	{
 		$data['contenu'] = '/chapter/V_chapter';
-		$data['chapter'] = $this->M_chapter->get_chapter();
-		$data['modules'] = $this->M_chapter->get_module();
+		$data['chapter'] = $this->M_chapter->get();
+		$data['modules'] = $this->M_module->get();
 		$this->load->view('templates/base', $data);
 		
 
 		
 		
+	}
+	public function module()
+	{
+		$data['modules'] = $this->M_chapter->get();
 	}
 }
 ?>
