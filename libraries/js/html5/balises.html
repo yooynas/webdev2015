@@ -1,0 +1,206 @@
+<!--
+Commentaire
+-->
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		
+		<meta charset="utf8" />
+		
+		<title>Intro HTML 5</title>
+		
+		<style>
+			*{ margin:0; padding:0; border:0; }
+			html,body{ font-size:15px; background:black; color:white; }
+			
+			div#container{ background:#111; min-width:700px; width:80%; margin:0 auto; border:1px red solid; }
+			
+			header{ background:#222; text-align:center; font-size:3em; margin:5px; border:1px red solid; padding:10px; }
+			
+			nav{ background:#444; text-align:center; width:80%; margin:0 auto; border:1px red solid; padding:0; }
+			nav ul{}
+			nav ul li{ display:inline; }
+			nav ul li a{ display:inline-block; background:black; color:red; font-size:1.2em; font-weight:bold; width:150px; line-height:30px; }
+
+			header.article{  }
+			
+			article{ border:1px red solid; background:#555; text-align:left; padding:0; border:0; margin:10px; }
+			article.news{  }
+			
+			aside{ border:1px red solid; background:#777; width:80px; height:280px; padding:10px; }
+			aside.left{ float:left; text-align:left; }
+			aside.right{ float:right; text-align:right; }
+			
+			section{ border:1px red solid; background:#666; text-align:left; margin:0 100px 0 100px; padding:10px; }
+			section.article{  }
+			
+			nav.top{ width:80%; text-align:left; }
+			nav.top a{ color:red; font-size:1.2em; font-weight:bold; }
+			
+			footer{ background:#333; text-align:center; font-size:1.5em; margin:5px; border:1px red solid; padding:10px; clear:both; }
+			footer.article{  }
+			
+			.noprint{  }
+			.onlyprint{ display:none; }
+		</style>
+		
+		<style media="print">
+			*{ margin:0; padding:0; border:0; }
+			html,body{ font-size:12px; background:white; color:black; }
+			
+			div#container{ background:#fff; width:100%; margin:0; border:none; }
+			
+			header.article{ border:2px black solid; }
+			
+			article{ background:#fff; border:2px black solid; }
+			article.news{  }
+			
+			aside{ background:#fff; border:2px black solid; }
+			
+			section{ border:none; background:#fff; margin:0; }
+			section.article{  }
+			
+			footer.article{ border:2px black solid; }
+			
+			.noprint{ display:none; }
+			.onlyprint{ display:block; }
+		</style>
+		
+	</head>
+	
+	<body style='width:100%; margin:0 auto;' >
+		
+		<div id="container" width=100>
+		
+			<header class="main noprint" >
+				HEADER
+			</header>
+
+			<nav class="main noprint" id="top" >
+				
+				<ul>
+				
+					<li><a href="#bot">Link 1</a></li>
+					<li><a href="#bot">Link 2</a></li>
+				
+				</ul>
+				
+			</nav>
+			
+			<article class="noprint" >
+				<header>La balise audio...</header>
+				<section><audio></audio></section>
+				<footer>La balise audio...</footer>
+			</article>
+			
+			<article class="noprint" >
+				<header>La balise video...</header>
+				<section><video></video></section>
+				<footer>La balise video...</footer>
+			</article>
+			<nav class="top noprint" ><a href="#top">^|^ TOP ^|^</a></nav>
+			
+			<article class="news" >
+			
+				<header class="article" >Article's header</header>
+				
+				<aside class="left noprint">Floaters</aside>
+				<aside class="right noprint">Floaters</aside>
+				
+				<section class="article" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada elit eu dolor malesuada ornare.Vestibulum condimentum ante in risus vestibulum eget posuere nibh gravida. Aenean quam erat, sollicitudin atpretium sit amet, posuere ac nisl. Morbi pellentesque dictum quam, in bibendum turpis lobortis vel. Donec tempusdiam id nulla venenatis in dapibus augue consequat. Sed cursus vehicula nulla, nec commodo justo dignissim vitae.Aliquam sit amet eleifend neque. Proin fringilla velit eget ligula condimentum at facilisis ante blandit. Donecsed magna sed lorem adipiscing viverra at egestas arcu. Nullam vulputate eros quis enim interdum et commodolacus vulputate. Vivamus sed nibh eget nunc tempor commodo in et quam. Nulla pharetra lectus nec lacus congue fermentum. Mauris eu ligula dui. Maecenas et urna ut mauris facilisis cursus. Morbi ornare aliquam sem auctor rutrum.Morbi a posuere dolor.</section>
+				<section class="article" >Vivamus eget ante quis risus posuere accumsan. Duis ut facilisis tortor. Nullam nulla orci, venenatis non elementum id, hendrerit ac augue. Fusce viverra feugiat lorem, eget lobortis dolor fermentum et. Sed risus metus, fermentum sagittis feugiat sed, dignissim ac metus. Curabitur tristique condimentum sagittis. Praesent venenatis feugiat ante ut blandit. Donec a mi velit, adipiscing eleifend mi. Aenean pellentesque, eros eu hendrerit auctor, augue orci blandit augue, eu pretium lorem dui sit amet velit. Vivamus pulvinar varius odio sit amet interdum. Mauris dapibus, libero ac aliquet dignissim, leo odio porttitor leo, sed mollis odio est ut nisi. Aenean quis nisl venenatis tellus faucibus interdum consequat in erat.</section>
+				<section class="article" >Suspendisse eu faucibus lacus. Sed consequat, erat interdum faucibus accumsan, metus tellus dictum turpis, a semper purus urna eu eros. Nam sit amet purus condimentum enim mollis congue in at turpis. Sed ac lectus felis. Integer molestie condimentum nulla, at pharetra velit posuere vitae. Nunc tristique euismod diam, ut molestie massa adipiscing a. In hac habitasse platea dictumst. Fusce euismod purus in dolor interdum fermentum. Proin vestibulum sapien commodo urna vestibulum vel sagittis nibh sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti.</section>
+				<section class="article" >In sagittis leo non mauris molestie eget sollicitudin magna dapibus. Etiam bibendum suscipit velit, nec molestie nisi aliquet sed. Sed at urna eget eros interdum suscipit. Phasellus scelerisque nisl ac dui blandit convallis. Aenean lacus metus, varius at lobortis congue, hendrerit a justo. Nunc tristique dapibus sapien, et mattis libero tincidunt at. Sed elit ante, laoreet sit amet posuere nec, porttitor auctor enim.</section>
+				<section class="article" >Donec eu magna metus, sed blandit nibh. Nunc nibh ante, elementum nec eleifend nec, vestibulum vitae arcu. Mauris tincidunt faucibus diam, vel dictum quam rutrum at. Vestibulum gravida faucibus justo ut pharetra. Vivamus quis elit ligula. Praesent egestas, tortor ut tempus consectetur, dolor dolor eleifend diam, ac aliquam nulla massa et dui. Nullam erat tellus, congue vehicula tristique et, facilisis vitae metus. Fusce lacinia libero eu nisl blandit et cursus orci rhoncus. Sed ultrices ipsum sed lacus auctor nec pulvinar lorem vehicula. In ultricies varius pellentesque. Sed dignissim, nisi sit amet volutpat porttitor, dui mi vestibulum tellus, ut placerat lacus magna non eros. Maecenas gravida mattis aliquam. Sed quis tortor nisl, ut vulputate metus. Donec id lorem orci, in euismod risus.</section>
+				<section class="article onlyprint" >&copy;Omniarchos</section>
+				
+				<footer class="article" >
+					Article's footer
+				</footer>
+				
+			</article>
+			<nav class="top noprint" ><a href="#top">^|^ TOP ^|^</a></nav>
+			
+			<article class="news" >
+			
+				<header class="article" >Article's header</header>
+				
+				<aside class="left noprint">Floaters</aside>
+				<aside class="right noprint">Floaters</aside>
+				
+				<section class="article" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada elit eu dolor malesuada ornare.Vestibulum condimentum ante in risus vestibulum eget posuere nibh gravida. Aenean quam erat, sollicitudin atpretium sit amet, posuere ac nisl. Morbi pellentesque dictum quam, in bibendum turpis lobortis vel. Donec tempusdiam id nulla venenatis in dapibus augue consequat. Sed cursus vehicula nulla, nec commodo justo dignissim vitae.Aliquam sit amet eleifend neque. Proin fringilla velit eget ligula condimentum at facilisis ante blandit. Donecsed magna sed lorem adipiscing viverra at egestas arcu. Nullam vulputate eros quis enim interdum et commodolacus vulputate. Vivamus sed nibh eget nunc tempor commodo in et quam. Nulla pharetra lectus nec lacus congue fermentum. Mauris eu ligula dui. Maecenas et urna ut mauris facilisis cursus. Morbi ornare aliquam sem auctor rutrum.Morbi a posuere dolor.</section>
+				<section class="article" >Vivamus eget ante quis risus posuere accumsan. Duis ut facilisis tortor. Nullam nulla orci, venenatis non elementum id, hendrerit ac augue. Fusce viverra feugiat lorem, eget lobortis dolor fermentum et. Sed risus metus, fermentum sagittis feugiat sed, dignissim ac metus. Curabitur tristique condimentum sagittis. Praesent venenatis feugiat ante ut blandit. Donec a mi velit, adipiscing eleifend mi. Aenean pellentesque, eros eu hendrerit auctor, augue orci blandit augue, eu pretium lorem dui sit amet velit. Vivamus pulvinar varius odio sit amet interdum. Mauris dapibus, libero ac aliquet dignissim, leo odio porttitor leo, sed mollis odio est ut nisi. Aenean quis nisl venenatis tellus faucibus interdum consequat in erat.</section>
+				<section class="article" >Suspendisse eu faucibus lacus. Sed consequat, erat interdum faucibus accumsan, metus tellus dictum turpis, a semper purus urna eu eros. Nam sit amet purus condimentum enim mollis congue in at turpis. Sed ac lectus felis. Integer molestie condimentum nulla, at pharetra velit posuere vitae. Nunc tristique euismod diam, ut molestie massa adipiscing a. In hac habitasse platea dictumst. Fusce euismod purus in dolor interdum fermentum. Proin vestibulum sapien commodo urna vestibulum vel sagittis nibh sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti.</section>
+				<section class="article" >In sagittis leo non mauris molestie eget sollicitudin magna dapibus. Etiam bibendum suscipit velit, nec molestie nisi aliquet sed. Sed at urna eget eros interdum suscipit. Phasellus scelerisque nisl ac dui blandit convallis. Aenean lacus metus, varius at lobortis congue, hendrerit a justo. Nunc tristique dapibus sapien, et mattis libero tincidunt at. Sed elit ante, laoreet sit amet posuere nec, porttitor auctor enim.</section>
+				<section class="article" >Donec eu magna metus, sed blandit nibh. Nunc nibh ante, elementum nec eleifend nec, vestibulum vitae arcu. Mauris tincidunt faucibus diam, vel dictum quam rutrum at. Vestibulum gravida faucibus justo ut pharetra. Vivamus quis elit ligula. Praesent egestas, tortor ut tempus consectetur, dolor dolor eleifend diam, ac aliquam nulla massa et dui. Nullam erat tellus, congue vehicula tristique et, facilisis vitae metus. Fusce lacinia libero eu nisl blandit et cursus orci rhoncus. Sed ultrices ipsum sed lacus auctor nec pulvinar lorem vehicula. In ultricies varius pellentesque. Sed dignissim, nisi sit amet volutpat porttitor, dui mi vestibulum tellus, ut placerat lacus magna non eros. Maecenas gravida mattis aliquam. Sed quis tortor nisl, ut vulputate metus. Donec id lorem orci, in euismod risus.</section>
+				<section class="article onlyprint" >&copy;Omniarchos</section>
+				
+				<footer class="article" >
+					Article's footer
+				</footer>
+				
+			</article>
+			<nav class="top noprint" ><a href="#top">^|^ TOP ^|^</a></nav>
+			
+			<article class="news" >
+			
+				<header class="article" >Article's header</header>
+				
+				<aside class="left noprint">Floaters</aside>
+				<aside class="right noprint">Floaters</aside>
+				
+				<section class="article" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada elit eu dolor malesuada ornare.Vestibulum condimentum ante in risus vestibulum eget posuere nibh gravida. Aenean quam erat, sollicitudin atpretium sit amet, posuere ac nisl. Morbi pellentesque dictum quam, in bibendum turpis lobortis vel. Donec tempusdiam id nulla venenatis in dapibus augue consequat. Sed cursus vehicula nulla, nec commodo justo dignissim vitae.Aliquam sit amet eleifend neque. Proin fringilla velit eget ligula condimentum at facilisis ante blandit. Donecsed magna sed lorem adipiscing viverra at egestas arcu. Nullam vulputate eros quis enim interdum et commodolacus vulputate. Vivamus sed nibh eget nunc tempor commodo in et quam. Nulla pharetra lectus nec lacus congue fermentum. Mauris eu ligula dui. Maecenas et urna ut mauris facilisis cursus. Morbi ornare aliquam sem auctor rutrum.Morbi a posuere dolor.</section>
+				<section class="article" >Vivamus eget ante quis risus posuere accumsan. Duis ut facilisis tortor. Nullam nulla orci, venenatis non elementum id, hendrerit ac augue. Fusce viverra feugiat lorem, eget lobortis dolor fermentum et. Sed risus metus, fermentum sagittis feugiat sed, dignissim ac metus. Curabitur tristique condimentum sagittis. Praesent venenatis feugiat ante ut blandit. Donec a mi velit, adipiscing eleifend mi. Aenean pellentesque, eros eu hendrerit auctor, augue orci blandit augue, eu pretium lorem dui sit amet velit. Vivamus pulvinar varius odio sit amet interdum. Mauris dapibus, libero ac aliquet dignissim, leo odio porttitor leo, sed mollis odio est ut nisi. Aenean quis nisl venenatis tellus faucibus interdum consequat in erat.</section>
+				<section class="article" >Suspendisse eu faucibus lacus. Sed consequat, erat interdum faucibus accumsan, metus tellus dictum turpis, a semper purus urna eu eros. Nam sit amet purus condimentum enim mollis congue in at turpis. Sed ac lectus felis. Integer molestie condimentum nulla, at pharetra velit posuere vitae. Nunc tristique euismod diam, ut molestie massa adipiscing a. In hac habitasse platea dictumst. Fusce euismod purus in dolor interdum fermentum. Proin vestibulum sapien commodo urna vestibulum vel sagittis nibh sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti.</section>
+				<section class="article" >In sagittis leo non mauris molestie eget sollicitudin magna dapibus. Etiam bibendum suscipit velit, nec molestie nisi aliquet sed. Sed at urna eget eros interdum suscipit. Phasellus scelerisque nisl ac dui blandit convallis. Aenean lacus metus, varius at lobortis congue, hendrerit a justo. Nunc tristique dapibus sapien, et mattis libero tincidunt at. Sed elit ante, laoreet sit amet posuere nec, porttitor auctor enim.</section>
+				<section class="article" >Donec eu magna metus, sed blandit nibh. Nunc nibh ante, elementum nec eleifend nec, vestibulum vitae arcu. Mauris tincidunt faucibus diam, vel dictum quam rutrum at. Vestibulum gravida faucibus justo ut pharetra. Vivamus quis elit ligula. Praesent egestas, tortor ut tempus consectetur, dolor dolor eleifend diam, ac aliquam nulla massa et dui. Nullam erat tellus, congue vehicula tristique et, facilisis vitae metus. Fusce lacinia libero eu nisl blandit et cursus orci rhoncus. Sed ultrices ipsum sed lacus auctor nec pulvinar lorem vehicula. In ultricies varius pellentesque. Sed dignissim, nisi sit amet volutpat porttitor, dui mi vestibulum tellus, ut placerat lacus magna non eros. Maecenas gravida mattis aliquam. Sed quis tortor nisl, ut vulputate metus. Donec id lorem orci, in euismod risus.</section>
+				<section class="article onlyprint" >&copy;Omniarchos</section>
+				
+				<footer class="article" >
+					Article's footer
+				</footer>
+				
+			</article>
+			<nav class="top noprint" ><a href="#top">^|^ TOP ^|^</a></nav>
+			
+			<article class="news" >
+			
+				<header class="article" >Article's header</header>
+				
+				<aside class="left noprint">Floaters</aside>
+				<aside class="right noprint">Floaters</aside>
+				
+				<section class="article" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada elit eu dolor malesuada ornare.Vestibulum condimentum ante in risus vestibulum eget posuere nibh gravida. Aenean quam erat, sollicitudin atpretium sit amet, posuere ac nisl. Morbi pellentesque dictum quam, in bibendum turpis lobortis vel. Donec tempusdiam id nulla venenatis in dapibus augue consequat. Sed cursus vehicula nulla, nec commodo justo dignissim vitae.Aliquam sit amet eleifend neque. Proin fringilla velit eget ligula condimentum at facilisis ante blandit. Donecsed magna sed lorem adipiscing viverra at egestas arcu. Nullam vulputate eros quis enim interdum et commodolacus vulputate. Vivamus sed nibh eget nunc tempor commodo in et quam. Nulla pharetra lectus nec lacus congue fermentum. Mauris eu ligula dui. Maecenas et urna ut mauris facilisis cursus. Morbi ornare aliquam sem auctor rutrum.Morbi a posuere dolor.</section>
+				<section class="article" >Vivamus eget ante quis risus posuere accumsan. Duis ut facilisis tortor. Nullam nulla orci, venenatis non elementum id, hendrerit ac augue. Fusce viverra feugiat lorem, eget lobortis dolor fermentum et. Sed risus metus, fermentum sagittis feugiat sed, dignissim ac metus. Curabitur tristique condimentum sagittis. Praesent venenatis feugiat ante ut blandit. Donec a mi velit, adipiscing eleifend mi. Aenean pellentesque, eros eu hendrerit auctor, augue orci blandit augue, eu pretium lorem dui sit amet velit. Vivamus pulvinar varius odio sit amet interdum. Mauris dapibus, libero ac aliquet dignissim, leo odio porttitor leo, sed mollis odio est ut nisi. Aenean quis nisl venenatis tellus faucibus interdum consequat in erat.</section>
+				<section class="article" >Suspendisse eu faucibus lacus. Sed consequat, erat interdum faucibus accumsan, metus tellus dictum turpis, a semper purus urna eu eros. Nam sit amet purus condimentum enim mollis congue in at turpis. Sed ac lectus felis. Integer molestie condimentum nulla, at pharetra velit posuere vitae. Nunc tristique euismod diam, ut molestie massa adipiscing a. In hac habitasse platea dictumst. Fusce euismod purus in dolor interdum fermentum. Proin vestibulum sapien commodo urna vestibulum vel sagittis nibh sollicitudin. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti.</section>
+				<section class="article" >In sagittis leo non mauris molestie eget sollicitudin magna dapibus. Etiam bibendum suscipit velit, nec molestie nisi aliquet sed. Sed at urna eget eros interdum suscipit. Phasellus scelerisque nisl ac dui blandit convallis. Aenean lacus metus, varius at lobortis congue, hendrerit a justo. Nunc tristique dapibus sapien, et mattis libero tincidunt at. Sed elit ante, laoreet sit amet posuere nec, porttitor auctor enim.</section>
+				<section class="article" >Donec eu magna metus, sed blandit nibh. Nunc nibh ante, elementum nec eleifend nec, vestibulum vitae arcu. Mauris tincidunt faucibus diam, vel dictum quam rutrum at. Vestibulum gravida faucibus justo ut pharetra. Vivamus quis elit ligula. Praesent egestas, tortor ut tempus consectetur, dolor dolor eleifend diam, ac aliquam nulla massa et dui. Nullam erat tellus, congue vehicula tristique et, facilisis vitae metus. Fusce lacinia libero eu nisl blandit et cursus orci rhoncus. Sed ultrices ipsum sed lacus auctor nec pulvinar lorem vehicula. In ultricies varius pellentesque. Sed dignissim, nisi sit amet volutpat porttitor, dui mi vestibulum tellus, ut placerat lacus magna non eros. Maecenas gravida mattis aliquam. Sed quis tortor nisl, ut vulputate metus. Donec id lorem orci, in euismod risus.</section>
+				<section class="article onlyprint" >&copy;Omniarchos</section>
+				
+				<footer class="article" >
+					Article's footer
+				</footer>
+				
+			</article>
+			<nav class="top noprint" ><a href="#top">^|^ TOP ^|^</a></nav>
+
+			<nav class="main noprint" id="bot" >
+				
+				<ul>
+				
+					<li><a href="#top">Link 1</a></li>
+					<li><a href="#top">Link 2</a></li>
+				
+				</ul>
+				
+			</nav>
+			
+			<footer class="main noprint">
+				FOOTER
+			</footer>
+		
+		</div>
+	</body>
+	
+</html>
