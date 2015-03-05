@@ -87,13 +87,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-<<<<<<< HEAD
-$autoload['helper'] = ['strings','arrays','debug','locale','libraries','url','form'];
-=======
-
-$autoload['helper'] = array('url','form','assets');
->>>>>>> origin/master
-
+$autoload['helper'] = ['strings','arrays','debug','locale','libraries','url','form','assets'];
 
 /*
 | -------------------------------------------------------------------
