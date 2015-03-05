@@ -13,12 +13,17 @@ class Modules extends CI_Controller
         var_dump($listmodules);
         
     }
+    
+    public function get_theory_by_module() {
+        
+    }
         
     public function get_questions_by_module() {
         
         $this->db->select('*');    
         $this->db->from('modules');
         $this->db->join('questions', 'modules.id_module = questions.fk_module_question');
+        $this->db->where('num_module', $name);
         //$this->db->join('table3', 'table1.id = table3.id');
         $query = $this->db->get();
         
