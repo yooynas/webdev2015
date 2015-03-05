@@ -10,7 +10,7 @@ class Welcome extends CI_Controller {
 	
 	public function index()
 	{
-		$data['contenu'] = 'modules/module_1';
+		$data['contenu'] = 'modules/module_2';
 		$this->load->view('templates/base', $data);
 	}
 }
