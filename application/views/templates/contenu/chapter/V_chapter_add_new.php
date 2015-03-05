@@ -1,10 +1,7 @@
 <body>
 <h2>Nouveau Chapitre</h2>
-<!--
-<form action="<?=base_url().'index.php/chapter/add_chapter';?>" method="post" id="add_user" >
-	<input type="hidden" name="id" value="">
-	<br>
-	<br>
+<?= form_open('chapter/add_chapter'); ?>
+	
 	<label for="lessons">Cours :</label>
 	<select name="lessons" id="lessons">
 		<?php
@@ -33,8 +30,7 @@
 	<input type="submit" name="add_chapter" value="Enregistrer">
 	
 	
-</form>
--->
+<?= form_close(); ?>
 				<?= form_open('chapter/add_chapter'); ?>
 				<label>Nom du chapitre :</label>
 				<div class="name_chapter"><?= $produit->nom; ?></div>

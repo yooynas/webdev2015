@@ -8,10 +8,22 @@ class MY_Model extends CI_Model {
     function __construct() {
         parent::__construct();
     }
+    
+    /*
+  ___  ____  ____ 
+ / __)(  __)(_  _)
+( (_ \ ) _)   )(  
+ \___/(____) (__)
+     */
+    
+    /* GET
+         Simple requête qui récupère toutes les informations.
+         paramètres :
+         $ids           Optionnel array ou string
+    */
     public function get($ids = FALSE) {
         // drapeau unique ou multiple
         $unique = $ids === FALSE || is_array($ids) ? FALSE : TRUE;
-        
         // Test si un ou plusieur id
         if ($ids !== FALSE) {
             is_array($ids) || $ids = array($ids);
@@ -26,8 +38,17 @@ class MY_Model extends CI_Model {
         $method = $unique ? 'row_array' : 'result_array';
         return $this->db->get($this->table_name)->$method();
     }
+    /* GET_BY
+        Récupère uniquement les informations qu'on a besoin.
+        paramètres :
+        $key            array ou string
+        $value          string ou NULL si $key = array
+        $orwhere        Boolean Définit la méthode OU ou ET suivant le paramètre $orwhere.
+        $unique         Boolean Renvoie un ou tout les résultats.
+    */
     public function get_by($key, $val = FALSE, $orwhere = FALSE, $unique = FALSE) {
         if(!is_array($key)) {
+            // Si on recherche dans une seule colonne, pas besoin de array, on passe donc $key et $val
             $this->db->where(htmlentities($key), htmlentities($val));
         } else {
             $key = array_map('htmlentities', $key);
@@ -39,12 +60,20 @@ class MY_Model extends CI_Model {
         
         return $this->db->get($this->table_name)->$method();
     }
+    /* GET_KEY_VALUE
+        Renvoie un array formaté tel quel : "'$key_field' => '$value_field'".
+        paramètres :
+        $key_field      string
+        $value_field    string
+        $ids            Optionnel array ou string
+    */
     public function get_key_value($key_field, $value_field, $ids=FALSE) {
         $this->db->select($key_field.','.$value_field);
         $result = $this->get($ids);
         $data = array();
         if (count($result) > 0) {
             if($ids != FALSE && !is_array($ids)) {
+                // Si il n'y a qu'un seul résultat, on le rentre quand même dans un tableau
                 $result = array($result);
             }
             foreach($result as $row) {
@@ -53,6 +82,11 @@ class MY_Model extends CI_Model {
         }
         return $data;
     }
+    /* GET_ASSOC
+        Renvoie un array dont l'index est définit par la clé primaire de la table.
+        paramètre :
+        $ids            Optionnel array ou string
+    */
     public function get_assoc($ids = FALSE) {
         $result = $this->get($ids);
         if($ids != FALSE && !is_array($ids)) {
@@ -61,7 +95,11 @@ class MY_Model extends CI_Model {
         $data = $this->to_assoc($result);
         return $data;
     }
-    public function to_assoc($result = array()) {
+    /* TO_ASSOC
+        Méthode appellée par get_assoc pour définir l'index du array.
+        Vous n'êtes pas sensés l'utiliser directement.
+    */
+    private function to_assoc($result = array()) {
         $data = array();
         if(count($result) > 0) {
             foreach($result as $row) {
@@ -71,6 +109,19 @@ class MY_Model extends CI_Model {
         }
         return $data;
     }
+    /*
+  __   ____  ____      _    ____  ____  __  ____ 
+ / _\ (    \(    \    / )  (  __)(    \(  )(_  _)
+/    \ ) D ( ) D (   / /    ) _)  ) D ( )(   )(  
+\_/\_/(____/(____/  (_/    (____)(____/(__) (__) 
+    */
+    
+    /* SAVE
+        Méthode 2 en 1 pour enregister ou modifier des entrées.
+        paramètres :
+        $data           array
+        $id             Optionnel string
+    */
     public function save($data,$id = FALSE) {
         if ($id === FALSE) {
             //insertion
@@ -83,6 +134,18 @@ class MY_Model extends CI_Model {
         
         return $id === FALSE ? $this->db->insert_id() : $id;
     }
+    /*
+ ____  ____  __    ____  ____  ____ 
+(    \(  __)(  )  (  __)(_  _)(  __)
+ ) D ( ) _) / (_/\ ) _)   )(   ) _) 
+(____/(____)\____/(____) (__) (____)
+    */
+    
+    /* DELETE
+        Supprime une ou des entrées
+        paramètre :
+        $ids            array ou string
+    */
     public function delete($ids) {
         $filter = $this->filter;
         $ids = !is_array($ids) ? array($ids) : $ids;
@@ -91,15 +154,30 @@ class MY_Model extends CI_Model {
             if ($id) {
                 $this->db->where($this->primary_key, $id)->limit(1)->delete($this->table_name);
             }
-            
         }
     }
+    /* DELETE_BY
+        Supprime des entrées qui sont le résultats d'une recherche
+        paramètres :
+        $key            string
+        $value          string
+    */
     public function delete_by($key,$value) {
         if(empty($key)) {
             return FALSE;
         }
         $this->db->where(htmlentities($key),htmlentities($value))->delete($this->table_name);
     }
+    /*
+  __  ____  _  _  ____  ____  ____ 
+ /  \(_  _)/ )( \(  __)(  _ \/ ___)
+(  O ) )(  ) __ ( ) _)  )   /\___ \
+ \__/ (__) \_)(_/(____)(__\_)(____/
+    */
+    
+    /* COUNT
+        Retroune le nombre d'entrées
+    */
     public function count() {
         $this->db->from($this->table_name);
         return $this->db->count_all_results();
