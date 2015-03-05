@@ -14,7 +14,7 @@ foreach ($chapter as $i)
 			?>
 			<p style="margin-left: 50px;">
 			<span class="num"><?= $module['num_module']; ?></span>
-			<a href="<?= site_url() ?>/modules/module_<?= $module['id_module']; ?>" class="name" style="padding-left:5px; display:inline-block"><?= $module['name_module']; ?></a>
+			<a href="<?= base_url().'index.php/modules/module_'.$module['id_module'].'.php'; ?>" class="name" style="padding-left:5px; display:inline-block"><?= $module['name_module']; ?></a>
             </p>
 			<?php
 		} 

@@ -9,7 +9,7 @@
 			foreach ($lessons as $lesson)
 			{
 			
-				$options [] = $lesson['name_lesson'];
+				$options [$lesson['id_lesson']] = $lesson['name_lesson'];
 				
 			}
 			echo form_dropdown('lessons',$options);
