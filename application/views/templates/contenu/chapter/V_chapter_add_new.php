@@ -34,19 +34,7 @@
 	
 <?= form_close(); ?>
 				
-<?php
-if (isset($_POST['add_chapter']))
-{
-	$newuser = array
-	(
-		
-		'lesson' => $_POST['lessons'],
-		'name_chapter' => $_POST['name_chapter'],
-		'date_chapter' => $_POST['date_chapter'],
-		'num_chapter' => $_POST['num_chapter']
-	);
-}
-	?>
+
 	
 	
 	
