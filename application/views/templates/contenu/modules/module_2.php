@@ -10,22 +10,31 @@ Vous devez choisir les balises que vous utilisez en fonction de leur significati
 Par exemple : &lt;titre&gt;Le titre de ma page&lt;/titre&gt; 
 Ce codage signifie que tout ce qui se trouve entre &lt;titre&gt; et &lt;/titre&gt; est le titre de la page. 
 Ces balises permettent donc de délimiter une partie de votre texte pour dire à quoi il correspond. 
-Les balises auto-fermantes (ou monoatomiques) : Elles ne délimitent pas de texte, elles servent à insérer une information à un endroit précis
+Les balises auto-fermantes (ou monoatomiques) : Elles ne délimitent pas de texte, elles servent à insérer une information à un endroit <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Une telle balise devait, pour respecter les normes XHTML, se terminer par un / avant le chevron fermant (exemple : <image />), ce n’est plus le cas depuis le HTML5 ">précis</span>
 </p>
 <strong>Les attributs</strong>
 <p>Que la balise soit de type «paire» ou «unique», elle peut prendre en plus ce qu’on appelle des attributs. Le rôle des attributs est de compléter une balise pour donner des informations supplémentaires. 
-Un attribut s’écrit obligatoirement en lettres minuscules et ne comporte pas d’espace, tout comme le nom de la balise. Il est immédiatement suivi du signe égal « = » puis de guillemets qui entourent la valeur de l’attribut . La valeur de l’attribut n’est en revanche pas soumise aux mêmes règles : elle peut contenir des majuscules et des espaces sans problème. 
+    Un attribut s’écrit obligatoirement en lettres minuscules et ne comporte pas d’espace, tout comme le nom de la balise. Il est immédiatement suivi du signe égal « = » puis de guillemets qui entourent la valeur de <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Notons que depuis l’HTML5, les guillemets ne sont plus obligatoires.">l’attribut</span> . La valeur de l’attribut n’est en revanche pas soumise aux mêmes règles : elle peut contenir des majuscules et des espaces sans problème. 
 </p>
 <h2>Le code source minimal d’une page</h2>
 <p>Une page HTML doit comporter un minimum de code pour être « correcte ». Voici le code HTML que toute page doit obligatoirement comporter : </p>
-<code><!doctype html>
+<pre><?= htmlentities('
+<!doctype html>
 <html lang=fr>
-<head>
-<meta charset="utf-8">
-<title>Titre du document</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Titre du document</title>
+    </head>
 <body>
 
 </body>
-</html>
-</code>
+</html>'); ?>
+</pre>
+<strong>Doctype :</strong>
+<pre><?= htmlentities('<!doctype html>'); ?></pre>
+<p>Il existe plusieurs versions du langage HTML cohabitant sur le WEB.  On doit donc indiquer au navigateur la version retenue pour un document donné en le préfaçant d'un doctype. <br>
+C’est non seulement un moyen de s’assurer que le document sera bien interprété par les navigateurs, mais aussi un élément indispensable à sa validation par l’organisme de référence, le W3C. Utiliser un DOCTYPE incomplet ou désapprouvé —voire aucun DOCTYPE— déclenche dans ces navigateurs le mode "Quirks" ("habitudes bizarres") qui va considérer votre balisage comme invalide et démodé, conforme seulement aux normes de la fin des années 90<br>
+Une déclaration de type de document doit apparaître dans le document juste avant l'élément html (qui est l'élément racine de tout document HTML).<br>
+Depuis HTML 5, un seul DOCTYPE est prévu dont la syntaxe est simplifiée par rapport à celle d'un DOCTYPE classique.
+Les DOCTYPES des versions plus anciennes de HTML sont plus longues car basées sur le SGML et, par conséquent, exigent une référence à une DTD. Avec HTML 5, ce n'est plus le cas et le DOCTYPE n'est nécessaire que pour activer le mode standard pour les documents écrits selon la syntaxe HTML.
+</p>
