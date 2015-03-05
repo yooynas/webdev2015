@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Auth extends CI_Controller
+class auth extends CI_Controller
 {
 	
 	public function __construct() {
@@ -49,9 +49,10 @@ class Auth extends CI_Controller
 				$data = array();
 				$data['email'] = $this->input->post('email');
 				$data['password'] = $this->encrypt->encode($this->input->post('password'));
-				$data['key'] = htmlspecialchars($activation_key);
-				
+				$data['key'] = $activation_key;
+
 				$check_account = $this->AuthManager->check_activation_account($data['email'], $data['key']);
+				/*$check_account = $this->AuthManager->get_by(array('email_student' => $data['email'], 'activationkey_student' => $data['key']), NULL, NULL, TRUE);*/
 				
 				// Je vérifie sur la clé et le mail match
 				if (!empty($check_account)) {
@@ -70,9 +71,10 @@ class Auth extends CI_Controller
 				}
 				
 			}
-				
-			$data['contenu'] = 'auth/register';
-			$this->load->view('templates/base', $data);
+			else {
+				$data['contenu'] = 'auth/register';
+				$this->load->view('templates/base', $data);
+			}	
 			
 		}
 		else {
@@ -89,7 +91,7 @@ class Auth extends CI_Controller
 			
 		// Je définis les règles de mes champs
 		$this->form_validation->set_rules('email', '"email"', 'trim|required|max_length[255]|valid_email');
-		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[5]|max_length[55]|alpha_dash');
+		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[5]|max_length[55]');
 		
 		// Si le formulaire est correctement rempli
 		if($this->form_validation->run()) {
