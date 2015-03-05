@@ -30,14 +30,25 @@ class M_users extends MY_Model {
 				->update($this->table_users, $updateData);
 	}
 	
-	public function check_pass($email) {
+	public function check_pass($id) {
 
 		return $this->db
 				->select('pass_student')
 				->from($this->table_users)
-				->where('email_student', $email)
+				->where('id_student', $id)
 				->get()
 				->row();
+	}
+	
+	public function update_pass($id, $password) {
+		
+		$updateData = array(
+		    'pass_student' => $password
+		);
+		
+		return $this->db
+				->where('id_student', $id)
+				->update($this->table_users, $updateData);
 	}
 
 }

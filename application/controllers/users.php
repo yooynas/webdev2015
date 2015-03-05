@@ -11,6 +11,7 @@ class users extends CI_Controller
 		// J'inclus mon modèle, mes librairies, mes helpers, fichiers de langues etc...
 		$this->load->database();
 		$this->load->model('M_Users', 'UsersManager');
+		$this->load->model('M_Auth', 'AuthManager');
 		$this->load->library(array('session','encrypt','form_validation'));
 		$this->load->helper(array('url','form'));
 		
@@ -69,56 +70,57 @@ class users extends CI_Controller
 		
 	}
 	
-	/*
-	
 	public function update_pass() {
 		
-		$data = array(
-		        'old_password' => $this->input->post('old_password'),
-		        'password' => $this->input->post('password'),
-		        'confirm_password' => $this->input->post('confirm_password')
-		);
+		// Je vérifie que le mot de passe actuel est correct 
+		$check_pass = $this->UsersManager->check_pass($this->session->userdata('id'));
+	        	        	        
+	    if (!empty($this->input->post('old_password') == $this->encrypt->decode($check_pass->pass_student))) {
 		
-		// Je définis les délimiteurs pour l'affichage des erreurs
-		$this->form_validation->set_error_delimiters('<p style="color:#ad4442">', '</p>');
-		
-		$this->form_validation->set_data($data);
+			$data = array(
+			        'password' => $this->input->post('password'),
+			        'confirm_password' => $this->input->post('confirm_password')
+			);
 			
-		// Je définis les règles de mes champs
-		$this->form_validation->set_rules('old_password', '"ancien mot de passe"', 'trim|required|min_length[5]|max_length[55]|callback_check_pass');
-		$this->form_validation->set_rules('password', '"nouveau mot de passe"', 'trim|required|min_length[5]|max_length[55]');
-		$this->form_validation->set_rules('confirm_password', '"confirmez"', 'trim|required|min_length[5]|max_length[55]|matches[password]');
-		
-		// Si le formulaire est correctement rempli
-		if($this->form_validation->run()) {
+			// Je définis les délimiteurs pour l'affichage des erreurs
+			$this->form_validation->set_error_delimiters('<p style="color:#ad4442">', '</p>');
 			
-			// Je met à jours le mot de passe
+			$this->form_validation->set_data($data);
+				
+			// Je définis les règles de mes champs
+			$this->form_validation->set_rules('password', '"nouveau mot de passe"', 'trim|required|min_length[5]|max_length[55]');
+			$this->form_validation->set_rules('confirm_password', '"confirmez"', 'trim|required|min_length[5]|max_length[55]|matches[password]');
 			
-			// Je redirige vers la page infos du compte
+			// Si le formulaire est correctement rempli
+			if($this->form_validation->run()) {
+				
+				// Je met à jours le mot de passe
+				$password = $this->encrypt->encode($this->input->post('password'));
+				
+				$this->UsersManager->update_pass($this->session->userdata('id'), $password);
+				
+				$this->session->set_flashdata('alert', '<p style="color:#ad4442">Mot de passe modifié avec succès !</p>');
+				
+				// Je redirige vers la page infos du compte
+				redirect('users/infos','refresh');
+				
+			}
+			else {
+				
+				// J'affiche les infos du comptes
+				$this->infos();
+				
+			}
+			
+		}
+		else {
+			
+			$this->session->set_flashdata('error', '<p style="color:#ad4442">Mot de passe actuel incorrect !</p>');
 			redirect('users/infos','refresh');
 			
 		}
-		else {
-			
-			// J'affiche les infos du comptes
-			$this->infos();
-			
-		}
+		
 		
 	}
-	
-	public function check_pass($pass) {
-		
-		if (empty($this->UserManager->check_pass($pass))) {
-			return TRUE;
-		}
-		else {
-			$this->form_validation->set_message('check_pass', 'Votre mot de passe actuel n\'existe pas !');
-			return FALSE;
-		}
-		
-	}
-	
-	*/
 	
 }
