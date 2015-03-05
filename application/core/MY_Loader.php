@@ -1,5 +1,5 @@
 <?php if(!defined('BASEPATH')) exit('No direct access!');
-class OMNI_Loader extends CI_Loader{
+class MY_Loader extends CI_Loader{
 /**
  * This autoloader permits the use of static helpers
  */
