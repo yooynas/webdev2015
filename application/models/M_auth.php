@@ -40,5 +40,15 @@ class M_auth extends MY_Model {
 				->get()
 				->row();
 	}
+	
+	public function check_pass($email) {
+
+		return $this->db
+				->select('pass_student')
+				->from($this->table_users)
+				->where('email_student', $email)
+				->get()
+				->row();
+	}
 
 }

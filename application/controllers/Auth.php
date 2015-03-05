@@ -96,25 +96,36 @@ class auth extends CI_Controller
 		// Si le formulaire est correctement rempli
 		if($this->form_validation->run()) {
 			
-			// Je stock les infos de l'utilisateur dans des variables
-			$data = array();
-			$data['email'] = $this->input->post('email');
-			$data['password'] = $this->input->post('password');
+	        $check_pass = $this->AuthManager->check_pass($this->input->post('email'));
+	        	        	        
+	        if (!empty($this->input->post('password') == $this->encrypt->decode($check_pass->pass_student))) {
 			
-			// Je récupère les infos du compte avec l'adresse email
-			$db_check_account = $this->AuthManager->check_account($data['email']);
-						
-			$userData = array(
-			                   'id'  	   => $db_check_account->id_student,
-			                   'firstname'  => $db_check_account->firstname_student,
-			                   'lastname'  => $db_check_account->lastname_student,
-			                   'access'     => 'student',
-			                   'logged_in' => TRUE
-			               );
+				// Je stock les infos de l'utilisateur dans des variables
+				$data = array();
+				$data['email'] = $this->input->post('email');
+				$data['password'] = $this->input->post('password');
+				
+				// Je récupère les infos du compte avec l'adresse email
+				$db_check_account = $this->AuthManager->check_account($data['email']);
+							
+				$userData = array(
+				                   'id'  	   => $db_check_account->id_student,
+				                   'firstname'  => $db_check_account->firstname_student,
+				                   'lastname'  => $db_check_account->lastname_student,
+				                   'access'     => 'student',
+				                   'logged_in' => TRUE
+				               );
+				
+				$this->session->set_userdata($userData);
+				
+				redirect('chapter');
 			
-			$this->session->set_userdata($userData);
-			
-			redirect('chapter');
+			}
+			else {
+				
+		        $this->session->set_flashdata('error', '<p style="color:#ad4442">Mot de passe incorrect !</p>');
+				
+			}
 			
 		}
 		

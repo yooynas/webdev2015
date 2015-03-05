@@ -29,18 +29,22 @@ class Chapter extends CI_Controller
 		$this->load->view('templates/base', $data);
 	}
 	public function add_chapter() {
-		if (isset($_POST['add_chapter']))
-		{
-			$new_chapter = array
-			(
 		
-			
-			'name_chapter' => $_POST['name_chapter'],
-			'begin_chapter' => $_POST['date_chapter'],
-			'num_chapter' => $_POST['num_chapter'],
-			'fk_lessons_chapter' => $_POST['lessons'],
-			);
-		}
+		 $this->form_validation->set_rules('name_chapter','Nom chapitre', 'trim|required|min_length[4]');
+         $this->form_validation->set_rules('date_chapter','Date du debut du chapitre', 'trim|required');
+         $this->form_validation->set_rules('num_chapter','Numéro du chapitre', 'trim|required');
+
+         $this->form_validation->set_rules('fk_lessons_chapter','cours associé', 'trim|required');
+
+         if ($this->form_validation->run() == FALSE )
+         {
+            $this->add_new_chapter();
+         } 
+         else 
+         {
+           
+         }
+		
 		 var_dump($new_chapter);
 		 $this->M_chapter->save($new_chapter);
 	}

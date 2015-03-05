@@ -9,12 +9,13 @@ foreach ($chapter as $i)
 <?php 
 	foreach ($modules as $module)
 	{
-		if ($i['num_chapter'] == $module['fk_chapter_module'])
+		if ($i['id_chapter'] == $module['fk_chapter_module'])
 		{
 			?>
-			<div class="num" style="padding-left:100px; display:inline-block"><?= $module['num_module']; ?></div>
-			<div class="name" style="padding-left:5px; display:inline-block"><?= $module['name_module']; ?></div>
-			<br>
+			<p style="margin-left: 50px;">
+			<span class="num"><?= $module['num_module']; ?></span>
+			<a href="<?= site_url() ?>/modules/module_<?= $module['id_module']; ?>" class="name" style="padding-left:5px; display:inline-block"><?= $module['name_module']; ?></a>
+            </p>
 			<?php
 		} 
 		
