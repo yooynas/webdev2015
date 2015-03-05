@@ -16,3 +16,16 @@ Les balises auto-fermantes (ou monoatomiques) : Elles ne délimitent pas de text
 <p>Que la balise soit de type «paire» ou «unique», elle peut prendre en plus ce qu’on appelle des attributs. Le rôle des attributs est de compléter une balise pour donner des informations supplémentaires. 
 Un attribut s’écrit obligatoirement en lettres minuscules et ne comporte pas d’espace, tout comme le nom de la balise. Il est immédiatement suivi du signe égal « = » puis de guillemets qui entourent la valeur de l’attribut . La valeur de l’attribut n’est en revanche pas soumise aux mêmes règles : elle peut contenir des majuscules et des espaces sans problème. 
 </p>
+<h2>Le code source minimal d’une page</h2>
+<p>Une page HTML doit comporter un minimum de code pour être « correcte ». Voici le code HTML que toute page doit obligatoirement comporter : </p>
+<code><!doctype html>
+<html lang=fr>
+<head>
+<meta charset="utf-8">
+<title>Titre du document</title>
+</head>
+<body>
+
+</body>
+</html>
+</code>

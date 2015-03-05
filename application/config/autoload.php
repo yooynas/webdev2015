@@ -88,11 +88,8 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-<<<<<<< HEAD
-$autoload['helper'] = array('url','assets');
-=======
-$autoload['helper'] = array('url','form');
->>>>>>> origin/master
+
+$autoload['helper'] = array('url','form','assets');
 
 
 /*
