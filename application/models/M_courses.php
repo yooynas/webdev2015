@@ -13,6 +13,16 @@
             return $this->db->select('*')->from('lessons')->join('category', 'fk_category_lesson = id_category', 'inner')->get()->result();
         }
         
+        public function get_fk_lesson_courses (){
+            return $this->db->select('fk_lesson_courses')->from('courses')->get()->result();
+            
+        }
+        
+        public function get_fk_student_courses (){
+            return $this->db->select('fk_student_courses')->from('courses')->get()->result();
+        }
+        
+        /*
         public function session(){
             return $this->db->select('*')->from('students')->get()->result();
         
@@ -25,6 +35,7 @@
             }
             
         }
+        */
         
         
     }
