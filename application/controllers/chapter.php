@@ -20,7 +20,6 @@ class Chapter extends CI_Controller
 		$data['modules'] = $this->M_module->get();
 		$this->load->view('templates/base', $data);
 		
-
 		
 		
 	}
