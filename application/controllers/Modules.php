@@ -5,13 +5,8 @@ class Modules extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_module');
-        //$this->load->model('M_question');
+        $this->load->model('M_question');
 	}
-    
-    public function getmodules() {
-        $listmodules = $this->M_module->get();
-        var_dump($listmodules);
-    }
     
     public function get_document_by_module() {
         $listmodules = $this->M_module->get();
@@ -20,15 +15,52 @@ class Modules extends CI_Controller
     }
         
     public function get_questions_by_module() {
-        $this->db->select('label_question');    
-        $this->db->from('questions');
-        $this->db->join('table2', 'table1.id = table2.id');
-        $this->db->join('table3', 'table1.id = table3.id');
+        
+        $this->db->select('*');    
+        $this->db->from('modules');
+        $this->db->join('questions', 'modules.id_module = questions.fk_module_question');
+        //$this->db->join('table3', 'table1.id = table3.id');
         $query = $this->db->get();
+        
+        foreach ($query->result() as $row)
+        {
+            echo $row->num_module;
+            echo "<br>";
+            echo $row->label_question;
+            echo "<br>";
+        }
+       
     }
     
+    public function add_module() {
+        $data = array(
+            'name_module'=> $_POST['name_module'],
+            'num_module'=> $_POST['num_module'],
+            'type_module'=> $_POST['type_module'],
+            'fk_chapter_module'=> $_POST['fk_chapter_module']
+        );
+        $this->M_module->save($data);
+    }
+    
+    public function edit_module($id) {
+        $data = array(
+            'name_module'=> $_POST['name_module'],
+            'num_module'=> $_POST['num_module'],
+            'type_module'=> $_POST['type_module'],
+            'fk_chapter_module'=> $_POST['fk_chapter_module']
+        );
+        $this->M_module->save($data, $id);
+    }
+    
+    public function delette_module() {
+        
+        $this->M_module->delete(array($nums));
+    
+    }
+    
+    
 	public function index() {        
-        $this->getmodules();  
+        $this->get_questions_by_module();  
 
 	}
 }

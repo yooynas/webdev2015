@@ -16,7 +16,7 @@ class Chapter extends CI_Controller
 	{
 		
 		$data['contenu'] = '/chapter/V_chapter';
-		$data['chapter'] = $this->M_chapter->get();
+        $data['chapter'] = $this->M_chapter->get();
 		$data['modules'] = $this->M_module->get();
 		$this->load->view('templates/base', $data);
 		
