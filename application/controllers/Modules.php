@@ -20,11 +20,12 @@ class Modules extends CI_Controller
         
     public function get_questions_by_module() {
         
+        /*
+        
         $this->db->select('*');    
         $this->db->from('modules');
         $this->db->join('questions', 'modules.id_module = questions.fk_module_question');
         $this->db->where('num_module', $name);
-        //$this->db->join('table3', 'table1.id = table3.id');
         $query = $this->db->get();
         
         foreach ($query->result() as $row)
@@ -34,6 +35,16 @@ class Modules extends CI_Controller
             echo $row->label_question;
             echo "<br>";
         }
+        
+        */
+        
+        $data['contenu'] = '/chapter/V_module';
+        $data['module'] = $this->M_module->get();
+		$data['questions'] = $this->M_question->get();
+		$this->load->view('templates/base', $data);
+		
+        
+        
        
     }
     
