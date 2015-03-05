@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class M_auth extends MY_Model {
+class M_users extends MY_Model {
 
 	function __construct(){
 		parent::__construct();
@@ -8,37 +8,26 @@ class M_auth extends MY_Model {
 	
 	private $table_users = 'students';
 	
-	public function check_activation_account($email, $key) {
+	public function get_infos($id) {
 
 		return $this->db
-				->select('id_student')
+				->select('nickname_student, email_student')
 				->from($this->table_users)
-				->where('email_student', $email)
-				->where('activationkey_student', $key)
+				->where('id_student', $id)
 				->get()
 				->row();
 	}
 	
-	public function activated_account($email, $password) {
+	public function update_infos($id, $email, $nickname) {
 		
 		$updateData = array(
-		    'pass_student' => $password,
-		    'activationkey_student' => ''
+		    'email_student' => $email,
+		    'nickname_student' => $nickname
 		);
 		
 		return $this->db
-				->where('email_student', $email)
+				->where('id_student', $id)
 				->update($this->table_users, $updateData);
-	}
-	
-	public function check_account($email) {
-
-		return $this->db
-				->select('*')
-				->from($this->table_users)
-				->where('email_student', $email)
-				->get()
-				->row();
 	}
 	
 	public function check_pass($email) {

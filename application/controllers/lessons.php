@@ -7,8 +7,13 @@ class Lessons extends CI_Controller {
 		/*
 			Chargement des modèles
 		*/
+
 		$this->load->model('M_lessons');
 		$this->load->model('M_category');
+		if (!$this->session->userdata('id')) 
+		{
+			redirect('auth/login', 'refresh'); 
+		}
 	}
 
 	public function index()
@@ -19,22 +24,33 @@ class Lessons extends CI_Controller {
 		$this->load->view('templates/base', $data);
 	}
 
-	public function ajouter($id = null,$id_cat = null)
+
+	public function add()
 	{
-		if(!isset($id))
-		{
-			$data['contenu']    = 'lessons/ajouter';
-			$data['categories'] = $this->M_category->get();
-			$this->load->view('templates/base', $data);
-		}
-		else
-		{
-			$data['contenu']    = 'lessons/ajouter';
-			$data['content']    = $this->M_lessons->get_by('id_lesson', $id, NULL, TRUE);
-			$data['categories'] = $this->M_category->get_by('id_category', $id_cat, NULL, TRUE);
-			$this->load->view('templates/base', $data);
-		}
+		$this->form_validation->set_rules('titre_lesson', 'titre_lesson', 'required');
+		$this->form_validation->set_rules('contenu_lesson', 'contenu_lesson', 'required');
+		$this->form_validation->set_rules('cat_lesson', 'cat', 'required');
+        if ($this->form_validation->run() === FALSE)
+        {
+        	$data['contenu'] = 'lessons/add';
+        	$data['categories'] = $this->M_category->get();
+            $this->load->view('templates/base', $data);
+        } 
+        else 
+        {
+        	echo $this->input->post('titre_lesson').' - '.$this->input->post('contenu_lesson').' - '.$this->input->post('cat_lesson');
+
+            $data = array(
+	            'name_lesson'=>$this->input->post('titre_lesson'),
+	            'description_lesson'=>$this->input->post('contenu_lesson'),
+	            'fk_category_lesson'=>$this->input->post('cat_lesson')
+       		);
+  		    $this->M_lessons->save($data);
+
+        } 
 	}
+
+
 }
 
 /* End of file lessons.php */

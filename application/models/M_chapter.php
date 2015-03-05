@@ -1,8 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 
 
 
+
+=======
+>>>>>>> origin/master
 class M_chapter extends MY_Model {
     function __construct() {
         parent::__construct();
@@ -12,4 +16,9 @@ class M_chapter extends MY_Model {
         $this->table_order = 'id_chapter DESC';
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
+?>
 
