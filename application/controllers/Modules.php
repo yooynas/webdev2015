@@ -15,6 +15,15 @@ class Modules extends CI_Controller
     }
     
     public function get_theory_by_module() {
+        if ($this->uri->segment(3) === FALSE)
+        {
+            echo "Le module n'existe pas encore";
+        }
+        else
+        {
+            $id_module = $this->uri->segment(3);
+        }
+		$this->load->view('templates/base/contenu/modules/module_'.$id_module);
         
     }
         
