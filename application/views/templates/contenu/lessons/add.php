@@ -14,7 +14,7 @@
   <div class="form-group">
     <label for="contenu_lesson" class="col-sm-2 control-label">Contenu</label>
     <div class="col-sm-10">
-      <textarea class="form-control" rows="3" name="contenu_lesson"><?=(isset($content))?$content['description_lesson']:''?></textarea>
+      <textarea class="form-control" rows="3" name="contenu_lesson"></textarea>
     </div>
   </div>
 
@@ -37,5 +37,3 @@
     </div>
   </div>
 </form>
-
-<?php echo $this->uri->segment(4);?>
