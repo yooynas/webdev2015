@@ -24,7 +24,7 @@
 <ul>
 <li>HTML  (HyperText Markup Language) : a fait son apparition dès 1991 lors du lancement du Web. Son rôle est de gérer et organiser le contenu. C'est donc en HTML que vous écrirez ce que vous souhaitez que la page affiche : du texte, des liens, des images... </li>
 <li>CSS (Cascading Style Sheets, aussi appelées Feuilles de style) : le rôle du CSS est de gérer l'apparence de la page web (agencement, positionnement, décoration, couleur, taille du texte...). Ce langage est venu compléter le HTML en 1996.</li>   
-<li>Nous comprendrons mieux à l’aide du site http://www.csszengarden.com.</li>
+<li>Nous comprendrons mieux à l’aide du site <a href="http://www.csszengarden.com" target="_blank">csszengarden</a>.</li>
 </ul>
 <h2>Outils d’édition HTML</h2>
 <strong>Vous avez besoin …</strong><br/>
