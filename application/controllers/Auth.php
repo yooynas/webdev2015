@@ -51,8 +51,10 @@ class Auth extends CI_Controller
 				$data['password'] = $this->encrypt->encode($this->input->post('password'));
 				$data['key'] = htmlspecialchars($activation_key);
 				
+				$check_account = $this->AuthManager->check_activation_account($data['email'], $data['key']);
+				
 				// Je vérifie sur la clé et le mail match
-				if (!empty($this->AuthManager->check_activation_account($data['email'], $data['key']))) {
+				if (!empty($check_account)) {
 					
 					// J'enregistre l'utilisateur dans la base de donnée
 					$this->AuthManager->activated_account($data['email'], $data['password']);
@@ -87,7 +89,7 @@ class Auth extends CI_Controller
 			
 		// Je définis les règles de mes champs
 		$this->form_validation->set_rules('email', '"email"', 'trim|required|max_length[255]|valid_email');
-		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[8]|max_length[55]|alpha_dash');
+		$this->form_validation->set_rules('password', '"password"', 'trim|required|min_length[5]|max_length[55]|alpha_dash');
 		
 		// Si le formulaire est correctement rempli
 		if($this->form_validation->run()) {
