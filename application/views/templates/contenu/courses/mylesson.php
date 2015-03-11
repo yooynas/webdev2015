@@ -12,6 +12,14 @@
             echo "<p>Intitulé : ".$r->description_lesson."</p>";
             echo "<p>Fin du cour : ".$r->end_lesson."</p>";
           }
-
+            
+        foreach ($compelte as $r){
+            echo "<h4>".$r->name_module."</h4>";
+            if ($r->count_follow == 1){
+                echo "module terminé";
+            } elseif ($r->count_follow == 0){
+                echo "module en cour";
+            }
+        }
     ?>
 </div>

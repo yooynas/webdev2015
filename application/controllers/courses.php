@@ -11,11 +11,13 @@
         public function index(){
             
             $idStudent = $this->session->userdata('id');
-            $data['heading'] = 'Mes leçons';
             
+            $data['heading'] = 'Mes leçons';
             $data['user'] = $this->M_courses->get_students($idStudent);
             $data['contenu'] = 'courses/mylesson';
             $data['myLesson'] = $this->M_courses->get_myLesson($idStudent);
+            $data['compelte'] = $this->M_courses->get_my_compelte($idStudent);
+            
             $this->load->view('templates/base.php', $data);
         }
     }
