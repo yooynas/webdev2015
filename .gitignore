@@ -5,6 +5,7 @@
 */cache/!index.html
 application/config/database.php
 application/config/config.php
+application/.htaccess
 .idea/workspace.xml
 .idea/webdev2015.iml
 .idea/vcs.xml
@@ -13,3 +14,4 @@ application/config/config.php
 .idea/misc.xml
 .idea/encodings.xml
 .idea/.name
+.htaccess

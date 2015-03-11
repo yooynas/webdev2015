@@ -10,24 +10,17 @@ class M_lessons extends MY_Model {
         $this->table_order = 'id_lesson DESC';
     }
     
-    function get_all()
-    {
-        $query = $this->db->get('lessons');
-        return $query->result();
-    }
-
-    function get_categories()
-    {
-        $query = $this->db->get('category');
-        return $query->result();
-    }
-
-    function get_lessons($id)
-    {
-        $query = $this->db->get_where('lessons', ['id_lesson' => $id]);
-        return $query->result();
-    }
     
+    function get_info()
+    {
+        return $this->db
+        ->select('*')
+        ->from('lessons')
+        ->join('teachers', 'lessons.fk_holder_lesson = teachers.id_teacher')
+        ->join('category', 'lessons.fk_category_lesson = category.id_category')
+        ->get()
+        ->result();
+    }
 
 }
 

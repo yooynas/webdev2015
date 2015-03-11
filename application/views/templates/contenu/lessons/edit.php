@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>Editer une leçon</h1>
 </div>
-<?php// var_dump($content); ?>
+<?php //var_dump($content); ?>
 
 <form class="form-horizontal" method="POST" action="<?=base_url()?>index.php/lessons/edit">
   <div class="form-group">
