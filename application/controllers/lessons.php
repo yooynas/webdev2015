@@ -21,7 +21,7 @@ class Lessons extends CI_Controller {
 		$data['contenu'] = 'lessons/index';
 		//$data['lessons'] = $this->M_lessons->get_all();
 		$data['lessons'] = $this->M_lessons->get_info();
-		$data['infos'] = $this->M_lessons->get_info();
+		//$data['infos'] = $this->M_lessons->get_info();
 		$this->load->view('templates/base', $data);
 	}
 
@@ -31,8 +31,8 @@ class Lessons extends CI_Controller {
 
 			$this->form_validation->set_rules('titre_lesson', 'titre_lesson', 'required');
 			$this->form_validation->set_rules('contenu_lesson', 'contenu_lesson', 'required');
-			$this->form_validation->set_rules('contenu_lesson', 'begin_lesson', 'required');
-			$this->form_validation->set_rules('contenu_lesson', 'end_lesson', 'required');
+			$this->form_validation->set_rules('begin_lesson', 'begin_lesson', 'required');
+			$this->form_validation->set_rules('end_lesson', 'end_lesson', 'required');
 			$this->form_validation->set_rules('cat_lesson', 'cat', 'required');
 	        if ($this->form_validation->run() === FALSE)
 	        {
@@ -67,7 +67,7 @@ class Lessons extends CI_Controller {
 			$this->M_lessons->delete($id);
 			$data['flash'] = 'Leçon supprimé avec succès !';
 			$data['contenu'] = 'lessons/index';
-			$data['lessons'] = $this->M_lessons->get();
+			$data['lessons'] = $this->M_lessons->get_info();
 			$this->load->view('templates/base', $data);
 
 		}
@@ -75,17 +75,18 @@ class Lessons extends CI_Controller {
 
 	public function edit($id=null)
 	{
-		if($id==null) {
-			redirect('lessons');
-		}
-			$this->form_validation->set_rules('id_lesson', 'id_lesson', 'required');
+
+			$this->form_validation->set_rules('id_lesson', 'titre_lesson', 'required');
 			$this->form_validation->set_rules('titre_lesson', 'titre_lesson', 'required');
 			$this->form_validation->set_rules('contenu_lesson', 'contenu_lesson', 'required');
-			$this->form_validation->set_rules('contenu_lesson', 'begin_lesson', 'required');
-			$this->form_validation->set_rules('contenu_lesson', 'end_lesson', 'required');
+			$this->form_validation->set_rules('begin_lesson', 'begin_lesson', 'required');
+			$this->form_validation->set_rules('end_lesson', 'end_lesson', 'required');
 			$this->form_validation->set_rules('cat_lesson', 'cat', 'required');
 	        if ($this->form_validation->run() === FALSE)
 	        {
+	        			if($id==null) {
+			redirect('lessons');
+		}
 			$data['contenu']    = 'lessons/edit';
 			$data['categories'] = $this->M_category->get();
 			$data['content']    = $this->M_lessons->get([$id]);
@@ -93,20 +94,16 @@ class Lessons extends CI_Controller {
 	        } 
 	        else 
 	        {
-	        	$data['flash'] = 'Leçon supprimé avec succès !';
 	            $data = array(
-					'name_lesson'        =>$this->input->post('titre_lesson'),
-					'description_lesson' =>$this->input->post('contenu_lesson'),
-					'begin_lesson'       =>$this->input->post('begin_lesson'),
-					'end_lesson'         =>$this->input->post('end_lesson'),
-					'fk_category_lesson' =>$this->input->post('cat_lesson'),
+					'name_lesson'        => $this->input->post('titre_lesson'),
+					'description_lesson' => $this->input->post('contenu_lesson'),
+					'begin_lesson'       => $this->input->post('begin_lesson'),
+					'end_lesson'         => $this->input->post('end_lesson'),
+					'fk_category_lesson' => $this->input->post('cat_lesson'),
 					'fk_holder_lesson'   => 1
 	       		);
-	  		    $this->M_lessons->save($data,$this->input->post('id_lesson'));
-		  		$data['flash'] = 'Leçon édité avec succès !';
-				$data['contenu'] = 'lessons/index';
-				$data['lessons'] = $this->M_lessons->get();
-				$this->load->view('templates/base', $data);
+	  		    $this->M_lessons->save($data,14);
+		  		redirect('lessons');
 	        } 
 	}
 

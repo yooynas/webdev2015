@@ -17,9 +17,13 @@ class Category extends CI_Controller {
 	public function index()
 	{
 		$data['contenu'] = 'categories/index';
-
 		$data['categories'] = $this->M_category->get();
 		$this->load->view('templates/base', $data);		
+	}
+
+	public function editer($id)
+	{
+		
 	}
 
 }

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Editer une leçon</h1>
+  <h1>Editer une leçon <?=$content[0]['id_lesson']?></h1>
 </div>
 <?php //var_dump($content); ?>
 
