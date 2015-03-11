@@ -25,8 +25,15 @@
 </div>
 
     <div class="col-lg-12">
-        <h2>Avancement</h2>
         <div class="avancement">
-            <p>test</p>
+            <h4>Avancement</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" aria-valuenow="5"aria-valuemin="0" aria-valuemax="100" style="width:<?=$avancement?>%">
+                <?=intval($avancement)?> complété</div>
+            </div>
         </div>
+    </div>
+    
+    <div class="col-lg-12">
+        
     </div>
