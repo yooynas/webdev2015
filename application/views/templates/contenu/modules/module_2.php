@@ -64,3 +64,10 @@ Choisissez-le avec soin car il a beaucoup d’importance pour les moteurs de rec
 <p>Signifie la fin de la page web. <br>
 Cette formulation est précise et rigoureuse (elle mêle notamment des balises et des parties en majuscules). Pour éviter d’éventuelles erreurs, contentez-vous d’un copier-coller dans vos créations.
 </p>
+<strong>Ajouter un commentaire</strong>
+<p>Une balise de commentaire n’est visible que si on regarde le code source de la page web que l’on visite. C’est une information généralement destinée au webmaster qui peut servir de repère ou d’aide-mémoire pour ne pas oublier de coder quelque chose.</p>
+<pre><?= htmlentities('<!--   Ajouter ici les commentaires   -->'); ?></pre>
+<strong>Présentation du code source</strong>
+<ul><li>Le code source HTML ne prend pas en compte vos retraits, sauts de ligne ou tabulations. Pour des raisons de lisibilité, aérez et indentez votre code source autant que possible.</li>
+<li>Ajoutez des commentaires de manière à vous souvenir de l’utilité d’une balise plutôt qu’une autre ou détailler votre code à destination d’un collègue.</li>
+</ul>
