@@ -15,12 +15,6 @@ class Modules extends CI_Controller
     }
     
     public function get_theory_by_module() {
-        //$data['contenu'] = 'modules/module_'.$id;    
-        //$this->load->view('templates/base', $data);
-        //$id_module = $this->uri->segment(3);
-        //$data['contenu'] = 'modules/template_theory';
-        //$data['contenupr'] = 'modules/module_'.$id_module;
-        //$data['id'] = $this->uri->segment(3);
         
         //$id_module = $this->uri->segment(3);
         $data['contenu'] = 'modules/template_theory';
@@ -28,14 +22,6 @@ class Modules extends CI_Controller
 		$this->load->view('templates/base', $data);
        
         
-    }
-        
-    public function get_questions_by_module() {
-        // $data['documents'] = 
-        $data['contenu'] = '/chapter/template_module';
-        $data['modules'] = $this->M_module->get();
-		$this->load->view('templates/base', $data);
-		
     }
     
     public function add_module() {
