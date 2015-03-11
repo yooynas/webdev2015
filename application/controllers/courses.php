@@ -9,32 +9,28 @@
         }
         
         public function index(){
+            
+            $idStudent = $this->session->userdata('id');
             /*
             $data['heading'] = 'Mes lecons';
             $data['rows'] = $this->M_courses->get_all();
             */
             $data['heading'] = 'Mes leçons';
-            $data['rows'] = $this->M_courses->get_all();
             
-            $data['fk_lesson'] = $this->M_courses->get_fk_lesson_courses();
-            $data['fk_student'] = $this->M_courses->get_fk_student_courses();
-            /*
-            $query = $this->M_courses->session();
+            // a remplacer par la session
+            //$data['student'] = $this->M_courses->get_students($idStudent);
             
-            if ($query){
-                $sess = array (
-                            'pseudo' => $this->input->post('username'),
-                            'is_logged_in' => TRUE
-                           );
+            //$data['fk_lesson'] = $this->M_courses->get_fk_lesson_courses();
+            
+            $data['fk_lesson'] = $this->M_courses->get_fk_lesson_courses($idStudent);
+            // clef etrangere de mes cours
+            var_dump($data['fk_lesson']);
+        
+            $data['myLesson'] = $this->M_courses->get_by('id_lesson', $data['fk_lesson'], NULL, FALSE);
+            
 
-                $this->session->set_userdata($sess);
+                //$data['myLesson'] = $this->M_courses->get_myLesson(intval($data['fk_lesson']));
 
-            }else {
-                
-            }
-*/
             $this->load->view('templates/contenu/courses/mylesson.php', $data);
-            
-            
         }
     }
