@@ -66,10 +66,7 @@ class Chapter extends CI_Controller
 	}
 	public function edit($id=null)
 	{
-			if($id==null)
-			{
-				redirect('chapter');
-			}
+			
 			$this->form_validation->set_rules('name_chapter','Nom chapitre', 'trim|required|min_length[4]');
          	$this->form_validation->set_rules('date_chapter','Date du debut du chapitre', 'trim|required');
          	$this->form_validation->set_rules('num_chapter','Numéro du chapitre', 'trim|required');
@@ -78,7 +75,11 @@ class Chapter extends CI_Controller
 
          	if ($this->form_validation->run() === FALSE )
          	{
-            	$this->index();
+            	$data['contenu']    = 'chapter/V_chapter_edit';
+				$data['chapter'] = $this->M_chapter->get();
+				$data['lessons'] = $this->M_lessons->get();
+				$data['content']    = $this->M_chapter->get([$id]);
+				$this->load->view('templates/base', $data);
             
          	} 
          	else 
@@ -90,12 +91,10 @@ class Chapter extends CI_Controller
 	            'fk_lessons_chapter'=>$this->input->post('lessons')
        			);
        		$this->M_chapter->save($data,$this->input->post('id_chapter'));
-			$data['contenu']    = 'chapter/V_chapter_edit';
-			$data['lessons'] = $this->M_lessons->get();
-			$data['content']    = $this->M_chapter->get([$id]);
-			$this->load->view('templates/base', $data);
-	}
+			redirect('chapter');
+			}
 	
 
+	}
 }
 ?>

@@ -29,7 +29,7 @@
 	<?= form_input('num_chapter','');?>
 	<br>
 	<br>
-	<?= form_submit('add_chapter','Enregistrer');?>
+	<?= form_submit('edit','Enregistrer');?>
 	
 	
 <?= form_close(); ?>

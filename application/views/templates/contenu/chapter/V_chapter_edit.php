@@ -1,6 +1,9 @@
 <body>
-<h2>Edition du chapitre <?=$lessons['name_lessons'];?></h2>
-<?= form_open('chapter/add_chapter'); ?>
+<h2>Edition du  <?=$content[0]['name_chapter'];?></h2>
+<?php
+var_dump($content);
+?>
+<?= form_open('chapter/edit'); ?>
 	
 	<?=form_label('Cours :','lessons') ?>
 	<span class="lessons">
@@ -17,16 +20,31 @@
 	</span>
 	<br>
 	<br>
+	<?=form_hidden('id_chapter',$content[0]['id_chapter']);?>
 	<?= form_label('Nom du chapitre :','name_chapter');?>
-	<?= form_input('name_chapter','');?>
+	<?php 
+	$data_name = array(
+				  'name' => 'name_chapter',
+				  'value' => $content[0]['name_chapter'],
+				   'size' => '40'				 
+				   )
+	?>
+	<?= form_input($data_name);?>
 	<br>
 	<br>
 	<label for="date_chapter">Date de début :</label>
-	<input type="date" name="date_chapter" value="">
+	<input type="date" name="date_chapter" value="<?=$content[0]['begin_chapter'];?>">
 	<br>
 	<br>
 	<?= form_label('Numéro du chapitre :','num_chapter');?>
-	<?= form_input('num_chapter','');?>
+	<?php 
+	$data_num = array(
+				  'name' => 'num_chapter',
+				  'value' => $content[0]['num_chapter'],
+				   'size' => '5'				 
+				   )
+	?>
+	<?= form_input($data_num);?>
 	<br>
 	<br>
 	<?= form_submit('add_chapter','Enregistrer');?>
