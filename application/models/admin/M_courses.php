@@ -7,8 +7,8 @@
         
         public function __construct (){
             parent::__construct();
-            $this->table_name = 'students';
-            $this->primary_key = 'id_student';
-            $this->table_order = 'id_student DESC';
+            $this->table_name = 'lessons';
+            $this->primary_key = 'id_lessons';
+            $this->table_order = 'id_lessons DESC';
         }
     }
