@@ -20,7 +20,8 @@ class Lessons extends CI_Controller {
 	{
 		$data['contenu'] = 'lessons/index';
 		//$data['lessons'] = $this->M_lessons->get_all();
-		$data['lessons'] = $this->M_lessons->get();
+		$data['lessons'] = $this->M_lessons->get_info();
+		$data['infos'] = $this->M_lessons->get_info();
 		$this->load->view('templates/base', $data);
 	}
 
@@ -77,6 +78,7 @@ class Lessons extends CI_Controller {
 		if($id==null) {
 			redirect('lessons');
 		}
+			$this->form_validation->set_rules('id_lesson', 'id_lesson', 'required');
 			$this->form_validation->set_rules('titre_lesson', 'titre_lesson', 'required');
 			$this->form_validation->set_rules('contenu_lesson', 'contenu_lesson', 'required');
 			$this->form_validation->set_rules('contenu_lesson', 'begin_lesson', 'required');
