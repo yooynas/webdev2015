@@ -10,10 +10,10 @@ class Lessons extends CI_Controller {
 			$this->load->library('encrypt');
 		$this->load->model('M_lessons');
 		$this->load->model('M_category');
-		/*if (!$this->session->userdata('id')) 
+		if (!$this->session->userdata('id')) 
 		{
 			redirect('auth/login', 'refresh'); 
-		}*/
+		}
 	}
 
 	public function index()
