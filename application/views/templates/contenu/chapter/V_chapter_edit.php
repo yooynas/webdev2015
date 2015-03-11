@@ -1,8 +1,6 @@
 <body>
 <h2>Edition du  <?=$content[0]['name_chapter'];?></h2>
-<?php
-var_dump($content);
-?>
+
 <?= form_open('chapter/edit'); ?>
 	
 	<?=form_label('Cours :','lessons') ?>
