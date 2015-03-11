@@ -25,11 +25,11 @@
 	<input type="date" name="date_chapter" value="">
 	<br>
 	<br>
-	<label for="num_chapter">Numéro du chapitre :</label>
-	<input type="text" name="num_chapter" value="">
+	<?= form_label('Numéro du chapitre :','num_chapter');?>
+	<?= form_input('num_chapter','');?>
 	<br>
 	<br>
-	<input type="submit" name="add_chapter" value="Enregistrer">
+	<?= form_submit('add_chapter','Enregistrer');?>
 	
 	
 <?= form_close(); ?>

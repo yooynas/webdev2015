@@ -7,35 +7,28 @@
         
         public function __construct (){
             parent::__construct();
+            $this->table_name = 'lessons';
+            $this->primary_key = 'id_courses';
+            $this->table_order = 'id_courses DESC';
         }
             
         public function get_all (){
             return $this->db->select('*')->from('lessons')->join('category', 'fk_category_lesson = id_category', 'inner')->get()->result();
         }
         
-        public function get_fk_lesson_courses (){
-            return $this->db->select('fk_lesson_courses')->from('courses')->get()->result();
-            
+        public function get_fk_lesson_courses ($id){
+            return $this->db->select('fk_lesson_courses')->from('courses')->where('fk_student_courses', $id)->get()->result();
         }
         
-        public function get_fk_student_courses (){
-            return $this->db->select('fk_student_courses')->from('courses')->get()->result();
+        public function get_students ($id){
+            return $this->db->select('*')->from('students')->where('id_student', $id)->get()->result();
         }
+
         
-        /*
-        public function session(){
-            return $this->db->select('*')->from('students')->get()->result();
-        
-            $this->db->where('nickname_student', $this->input->post('username'));
-            $this->db->where('pss_student', $this->input->post('password'));
+        public function get_myLesson ($idLesson) {
             
-            $query = $this->db->get('students');
-            if ($query->num_rows == 1) {
-                return true;
-            }
-            
+            //return $this->db->select('*')->from('lessons')->where('id_lesson', $idLesson)->get()->result();
         }
-        */
         
         
     }
