@@ -2,7 +2,7 @@
 <h2>Les bases</h2>
 <ul>
   <li>De nombreuses personnes confondent (à tort) Internet et le Web. Il faut savoir que le Web fait partie d'Internet.  Internet est donc un grand ensemble qui comprend, entre autres : le Web, les e-mails, la messagerie instantanée, etc.</li>
-    <li>Pour consulter les sites web, nous lançons un un programme appelé navigateur .  Celui-ci se base sur le code HTML et CSS des pages pour savoir ce qu’il doit afficher.</li>
+    <li>Pour consulter les sites web, nous lançons un un programme appelé <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="L’installation et la configuration des navigateurs principaux fait partie du programme du cours d’Environnement et Technologie Web (BES 1ère année)">navigateur</span> .  Celui-ci se base sur le code HTML et CSS des pages pour savoir ce qu’il doit afficher.</li>
     <li>Les langages informatiques HTML et CSS permettent de créer des sites web, ils sont incontournables et universels car tous les sites web sont basés sur ces langages.</li> 
     <li>Le langage HTML a été inventé par un certain Tim Berners-Lee en 1991... Tim Berners-Lee suit encore aujourd'hui avec attention l'évolution du Web. Il a créé le World Wide Web Consortium (W3C) qui définit les nouvelles versions des langages. Il a par ailleurs créé plus récemment la World Wide Web Foundation, qui analyse et suit l'évolution du Web</li>
 </ul>
@@ -22,7 +22,9 @@
 </div> 
 <h2>Pourquoi deux langages ?</h2>
 <ul>
-<li>HTML  (HyperText Markup Language) : a fait son apparition dès 1991 lors du lancement du Web. Son rôle est de gérer et organiser le contenu. C'est donc en HTML que vous écrirez ce que vous souhaitez que la page affiche : du texte, des liens, des images... </li>
+    <li><span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Un peu d’histoire …  Le HTML est apparu le premier en 1991. Début 2000, le W3C a lancé le XHTML en indiquant que ce serait l'avenir... le langage XHTML, variante du HTML est plus rigoureux et donc plus délicate à manipuler. Le XHTML n'a pas percé comme esperé, retour aux sources en 2009 : le W3C abandonne le XHTML et décide de revenir au HTML pour le faire évoluer.  Ces langages se ressemblent beaucoup, aucun n'est vraiment meilleur que l'autre, il s'agit de deux façons de faire différentes. 
+Dans ce cours, nous allons travailler sur la dernière version de HTML (HTML5) qui est aujourd'hui le langage d'avenir que tout le monde est incité à utiliser.
+">HTML</span>  (HyperText Markup Language) : a fait son apparition dès 1991 lors du lancement du Web. Son rôle est de gérer et organiser le contenu. C'est donc en HTML que vous écrirez ce que vous souhaitez que la page affiche : du texte, des liens, des images... </li>
 <li>CSS (Cascading Style Sheets, aussi appelées Feuilles de style) : le rôle du CSS est de gérer l'apparence de la page web (agencement, positionnement, décoration, couleur, taille du texte...). Ce langage est venu compléter le HTML en 1996.</li>   
 <li>Nous comprendrons mieux à l’aide du site <a href="http://www.csszengarden.com" target="_blank">csszengarden</a>.</li>
 </ul>

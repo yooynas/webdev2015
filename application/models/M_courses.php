@@ -7,35 +7,37 @@
         
         public function __construct (){
             parent::__construct();
-        }
-            
-        public function get_all (){
-            return $this->db->select('*')->from('lessons')->join('category', 'fk_category_lesson = id_category', 'inner')->get()->result();
-        }
-        
-        public function get_fk_lesson_courses (){
-            return $this->db->select('fk_lesson_courses')->from('courses')->get()->result();
-            
+            $this->table_name = 'students';
+            $this->primary_key = 'id_student';
+            $this->table_order = 'id_student DESC';
         }
         
-        public function get_fk_student_courses (){
-            return $this->db->select('fk_student_courses')->from('courses')->get()->result();
+        public function get_students ($id){
+            return $this->db->select('*')->from('students')->where('id_student', $id)->get()->result();
         }
         
-        /*
-        public function session(){
-            return $this->db->select('*')->from('students')->get()->result();
+        public function get_myLesson ($id) {
+            
+            $options = array(
+                             "FK_student_courses" => $id
+                             );
+            
+            return $this->db->select('*')->from('lessons')->join('courses', 'FK_lesson_courses = id_lesson')
+            ->where($options)->get()->result();
         
-            $this->db->where('nickname_student', $this->input->post('username'));
-            $this->db->where('pss_student', $this->input->post('password'));
-            
-            $query = $this->db->get('students');
-            if ($query->num_rows == 1) {
-                return true;
-            }
-            
+            //SELECT * FROM lessons INNER JOIN courses ON FK_lesson_courses = id_lesson WHERE FK_student_courses = session
         }
-        */
+        
+        public function get_my_compelte ($id){
+            
+            $options = array (
+                             "fk_student_follow" => $id
+                             );
+            return $this->db->select('*')->from('follows')->join('modules', 'FK_module_follow = id_module')
+            ->where($options)->get()->result();
+            
+            //SELECT * FROM follows INNER JOIN modules ON FK_module_follow = id_module WHERE fk_student_follow = session
+        }
         
         
     }

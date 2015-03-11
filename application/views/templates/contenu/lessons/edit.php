@@ -1,10 +1,11 @@
 <div class="page-header">
-  <h1>Ajouter une leçon</h1>
+  <h1>Editer une leçon</h1>
 </div>
-<?php// var_dump($content); ?>
+<?php //var_dump($content); ?>
 
-<form class="form-horizontal" method="POST" action="<?=base_url()?>index.php/lessons/add">
+<form class="form-horizontal" method="POST" action="<?=base_url()?>index.php/lessons/edit">
   <div class="form-group">
+    <input type="hidden" value="<?=$content[0]['id_lesson']?>" name="id_lesson">
     <label for="titre_lesson" class="col-sm-2 control-label">Titre</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" name="titre_lesson" placeholder="Titre de votre leçon" value="<?=(isset($content[0]['name_lesson']))?$content[0]['name_lesson']:''?>">
@@ -51,7 +52,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Ajouter</button>
+      <button type="submit" class="btn btn-default">Editer</button>
     </div>
   </div>
 </form>

@@ -9,32 +9,15 @@
         }
         
         public function index(){
-            /*
-            $data['heading'] = 'Mes lecons';
-            $data['rows'] = $this->M_courses->get_all();
-            */
+            
+            $idStudent = $this->session->userdata('id');
+            
             $data['heading'] = 'Mes leçons';
-            $data['rows'] = $this->M_courses->get_all();
+            $data['user'] = $this->M_courses->get_students($idStudent);
+            $data['contenu'] = 'courses/mylesson';
+            $data['myLesson'] = $this->M_courses->get_myLesson($idStudent);
+            $data['compelte'] = $this->M_courses->get_my_compelte($idStudent);
             
-            $data['fk_lesson'] = $this->M_courses->get_fk_lesson_courses();
-            $data['fk_student'] = $this->M_courses->get_fk_student_courses();
-            /*
-            $query = $this->M_courses->session();
-            
-            if ($query){
-                $sess = array (
-                            'pseudo' => $this->input->post('username'),
-                            'is_logged_in' => TRUE
-                           );
-
-                $this->session->set_userdata($sess);
-
-            }else {
-                
-            }
-*/
-            $this->load->view('templates/contenu/courses/mylesson.php', $data);
-            
-            
+            $this->load->view('templates/base.php', $data);
         }
     }

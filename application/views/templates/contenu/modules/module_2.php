@@ -38,3 +38,29 @@ Une déclaration de type de document doit apparaître dans le document juste ava
 Depuis HTML 5, un seul DOCTYPE est prévu dont la syntaxe est simplifiée par rapport à celle d'un DOCTYPE classique.
 Les DOCTYPES des versions plus anciennes de HTML sont plus longues car basées sur le SGML et, par conséquent, exigent une référence à une DTD. Avec HTML 5, ce n'est plus le cas et le DOCTYPE n'est nécessaire que pour activer le mode standard pour les documents écrits selon la syntaxe HTML.
 </p>
+<strong>En-tête et spécification de langue et d’encodage</strong>
+<p>Les normes du web imposent également d'autres déclarations obligatoires dans l'en-tête de tous documents HTML : les spécifications de langues et d'encodage.</p>
+<pre><?= htmlentities('<html lang=fr>'); ?></pre>
+<p>La balise &lt;html&gt; permettant d'identifier un document comme une page web.  Elle renferme la spécification dela langue du document.</p>
+<pre><?= htmlentities('<head> et </head>'); ?></pre>
+<p>Les balises &lt;head&gt; et &lt;/head&gt; sont des balises d'en-tête renfermant toutes les informations générales sur la page Web, comme son titre, l'encodage (pour la gestion des caractères spéciaux), etc.  Les informations que l'en-tête contient ne sont pas affichées sur la page.</p>
+<pre><?= htmlentities('<meta charset="utf-8">'); ?></pre>
+<p>L'encodage est spécifié entre les <head>, à l'aide de l'attribut charset.  Il indique aux navigateurs les caractères potentiellement utilisés dans le texte de la page (la façon dont le fichier est enregistré).  C'est lui qui détermine comment les caractères spéciaux vont s'afficher (accents, idéogrammes chinois et japonais, symboles arabes, etc.).<br>
+    <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Pour vous rendre compte des immenses possibilités du jeu de caractères UTF-8 : http://www.columbia.edu/~fdc/utf8/">utf-8</span>  permet d'utiliser la plupart des caractères de la majorité des langues du monde, il est donc intéressant de <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Pour un document en langue française, iso-8859-1 (presque complet pour les langues de l'Europe occidentale) ou iso-8859-15 (complète le précédent avec quelques caractères supplémentaires tels que €) peuvent être employés.">l’employer</span> . Attention ! Il faut également que votre fichier soit bien enregistré en UTF-8. C'est le cas le plus souvent sous Linux par défaut, mais sous Windows il faut généralement le dire au logiciel.
+</p>
+<p><strong>Problème d'affichage des accents sur sa page web ?</strong><br>
+C’est qu'il y a un problème avec l'encodage. Vérifiez que la balise indique bien UTF-8 et que votre fichier est enregistré en UTF-8. <br>
+    Sous Notepad++, allez dans le menu Encodage > Encoder en UTF-8 (sans <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Le BOM (Byte Order Mark) est un caractère espace insécable de largeur nulle, l’utiliser permet d’éviter l’apparition de caractères invisibles à traiter : http://www.prelude.me/index.php/2011/01/15/utf-8-avec-ou-sans-bom/">BOM</span> ) pour que votre fichier soit enregistré en UTF-8 dès le début. Cela ne s'applique qu'au fichier actuellement ouvert. <br>
+Pour ne pas avoir à le faire pour chaque nouveau fichier : menu Paramétrage > Préférences, onglet Nouveau document/Dossier. Sélectionnez UTF-8 sans BOM dans la liste.
+</p>
+<pre><?= htmlentities('<title> Mon Titre </title>'); ?></pre>
+<p>Les balises &lt;titre&gt; et &lt;/titre&gt; sont des balises de titre : le titre d’une page web est affiché dans la barre de titre du navigateur et dans son onglet.  Toute page doit avoir un titre qui décrit ce qu'elle contient. Il est conseillé que le titre soit assez court (moins de 100 caractères en général). <br>
+Choisissez-le avec soin car il a beaucoup d’importance pour les moteurs de recherche qui référencent les pages web, comme Google. 
+</p>
+<strong>Le contenu de la page</strong>
+<pre><?= htmlentities('<body> et </body>'); ?></pre>
+<p>Les balises &lt;body&gt; et &lt;/body&gt; sont des balises pour le corps du document : elles doivent encadrer le contenu de la page Web, tout ce qui se trouve à l’intérieur de cette balise sera affiché à l’écran.</p>
+<pre><?= htmlentities('</html>'); ?></pre>
+<p>Signifie la fin de la page web. <br>
+Cette formulation est précise et rigoureuse (elle mêle notamment des balises et des parties en majuscules). Pour éviter d’éventuelles erreurs, contentez-vous d’un copier-coller dans vos créations.
+</p>
