@@ -98,7 +98,7 @@ class auth extends CI_Controller
 			
 	        $check_pass = $this->AuthManager->check_pass($this->input->post('email'));
 	        	        	        
-	        if (!empty($this->input->post('password') == $this->encrypt->decode($check_pass->pass_student))) {
+	        if ($this->input->post('password') == $this->encrypt->decode($check_pass->pass_student)) {
 			
 				// Je stock les infos de l'utilisateur dans des variables
 				$data = array();
