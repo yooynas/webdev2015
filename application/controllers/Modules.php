@@ -15,46 +15,27 @@ class Modules extends CI_Controller
     }
     
     public function get_theory_by_module() {
-        if ($this->uri->segment(3) === FALSE)
-        {
-            echo "Le module n'existe pas encore";
-        }
-        else
-        {
-            $id_module = $this->uri->segment(3);
-        }
-		$this->load->view('templates/base/contenu/modules/module_'.$id_module);
+        //$data['contenu'] = 'modules/module_'.$id;    
+        //$this->load->view('templates/base', $data);
+        //$id_module = $this->uri->segment(3);
+        //$data['contenu'] = 'modules/template_theory';
+        //$data['contenupr'] = 'modules/module_'.$id_module;
+        //$data['id'] = $this->uri->segment(3);
+        
+        //$id_module = $this->uri->segment(3);
+        $data['contenu'] = 'modules/template_theory';
+        $data['id'] = $this->uri->segment(3);
+		$this->load->view('templates/base', $data);
+       
         
     }
         
     public function get_questions_by_module() {
-        
-        /*
-        
-        $this->db->select('*');    
-        $this->db->from('modules');
-        $this->db->join('questions', 'modules.id_module = questions.fk_module_question');
-        $this->db->where('num_module', $name);
-        $query = $this->db->get();
-        
-        foreach ($query->result() as $row)
-        {
-            echo $row->num_module;
-            echo "<br>";
-            echo $row->label_question;
-            echo "<br>";
-        }
-        
-        */
-        
-        $data['contenu'] = '/chapter/V_module';
-        $data['module'] = $this->M_module->get();
-		$data['questions'] = $this->M_question->get();
+        // $data['documents'] = 
+        $data['contenu'] = '/chapter/template_module';
+        $data['modules'] = $this->M_module->get();
 		$this->load->view('templates/base', $data);
 		
-        
-        
-       
     }
     
     public function add_module() {

@@ -7,7 +7,7 @@ class Chapter extends CI_Controller
 		$this->load->model('M_chapter');
 		$this->load->model('M_module');
 		$this->load->model('M_lessons');
-        $this->load->controller('module');
+
 		if (!$this->session->userdata('id')) 
 		{
 			redirect('auth/login', 'refresh'); 

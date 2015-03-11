@@ -18,6 +18,13 @@ if ( ! function_exists('img_url')) {
         return base_url().'assets/images/'.$nom;   
     }
 }
+
+if ( ! function_exists('doc_url')) {
+    function doc_url($nom) {
+        return base_url().'assets/documents/'.$nom;   
+    }
+}
+
 if ( ! function_exists('img')) {
     function img($nom,$alt='') {
         return '<img class="img-responsive" src="'.img_url($nom).'" alt="'.$alt.'" />';   
