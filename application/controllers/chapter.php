@@ -7,11 +7,11 @@ class Chapter extends CI_Controller
 		$this->load->model('M_chapter');
 		$this->load->model('M_module');
 		$this->load->model('M_lessons');
-<<<<<<< HEAD
+
        // $this->load->controller('module');
-=======
+
         
->>>>>>> 35b2b85bfa934a943ea7087c465b74d79da6b466
+
 		if (!$this->session->userdata('id')) 
 		{
 			redirect('auth/login', 'refresh'); 

@@ -7,7 +7,7 @@ class Lessons extends CI_Controller {
 		/*
 			Chargement des modèles
 		*/
-
+			$this->load->library('encrypt');
 		$this->load->model('M_lessons');
 		$this->load->model('M_category');
 		/*if (!$this->session->userdata('id')) 
