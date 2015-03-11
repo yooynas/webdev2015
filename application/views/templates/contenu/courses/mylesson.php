@@ -23,3 +23,10 @@
         }
     ?>
 </div>
+
+    <div class="col-lg-12">
+        <h2>Avancement</h2>
+        <div class="avancement">
+            <p>test</p>
+        </div>
+    </div>
