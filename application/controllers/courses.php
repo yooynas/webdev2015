@@ -14,8 +14,8 @@
             $data['heading'] = 'Mes leçons';
             
             $data['user'] = $this->M_courses->get_students($idStudent);
-            
+            $data['contenu'] = 'courses/mylesson';
             $data['myLesson'] = $this->M_courses->get_myLesson($idStudent);
-            $this->load->view('templates/contenu/courses/mylesson.php', $data);
+            $this->load->view('templates/base.php', $data);
         }
     }
