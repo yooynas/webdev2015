@@ -24,7 +24,7 @@
 	$data_name = array(
 				  'name' => 'name_chapter',
 				  'value' => $content[0]['name_chapter'],
-				   'size' => '40'				 
+				   'size' => '60'				 
 				   )
 	?>
 	<?= form_input($data_name);?>
