@@ -64,6 +64,13 @@ class Chapter extends CI_Controller
 		
 		 
 	}
+	public function edit($id=null)
+	{
+			$data['contenu']    = 'chapter/V_chapter_edit';
+			$data['lessons'] = $this->M_lessons->get();
+			$data['content']    = $this->M_chapter->get([$id]);
+			$this->load->view('templates/base', $data);
+	}
 	
 
 }

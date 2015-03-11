@@ -6,6 +6,7 @@ foreach ($chapter as $i)
 <div class="num" style="display:inline-block"><?= $i['num_chapter']; ?></div>
 <div class="name" style="display:inline-block"><?= $i['name_chapter']; ?></div>
 <div class="begin"><?= $i['begin_chapter']; ?></div>
+<a href="<?=site_url("chapter")?>/edit/<?=$i['id_chapter']?>">Edition</a>
 <?php 
 	foreach ($modules as $module)
 	{
@@ -15,6 +16,7 @@ foreach ($chapter as $i)
 			<p style="margin-left: 50px;">
 			<span class="num"><?= $module['num_module']; ?></span>
 			<a href="<?= base_url().'index.php/modules/module_'.$module['id_module'].'.php'; ?>" class="name" style="padding-left:5px; display:inline-block"><?= $module['name_module']; ?></a>
+            
             </p>
 			<?php
 		} 
@@ -23,3 +25,4 @@ foreach ($chapter as $i)
 }
 ?>
 <div><a href="<?= base_url().'index.php/chapter/add_new_chapter' ?>">Ajouter un nouveaux chapitre</a></div>
+
