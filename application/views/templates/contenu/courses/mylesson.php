@@ -1,22 +1,17 @@
 <div>
     <?php
-        echo $heading.' : <br/>';
-        /*
-        foreach ($fk_lesson as $r){
-            echo $r->fk_lesson_courses."<br />";
+    
+        foreach ($user as $r){
+            echo "Salut : ".$r->email_student;
         }
-        */
-        foreach ($fk_lesson as $r){
-            echo $r->fk_lesson_courses."<br />";
-        }   //var_dump($fk_lesson);
         
-        /*
-        foreach ($student as $r){
-            echo $r->email_student."<br />";
-            echo $r->nickname_student."<br />";
-        }
-        */
-        var_dump($myLesson);
+        echo "<h2>".$heading.' : </h2>';
         
+        foreach ($myLesson as $r){
+            echo "<h3>".$r->name_lesson."</h3><p>Début du cour : ".$r->begin_lesson."</p>";
+            echo "<p>Intitulé : ".$r->description_lesson."</p>";
+            echo "<p>Fin du cour : ".$r->end_lesson."</p>";
+          }
+
     ?>
 </div>
