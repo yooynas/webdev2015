@@ -1,18 +1,5 @@
-<body>
-<?php
-foreach ($chapter as $i)
-{
-?>
-<div class="num" style="display:inline-block"><?= $i['num_chapter']; ?></div>
-<div class="name" style="display:inline-block"><?= $i['name_chapter']; ?></div>
-<div class="begin"><?= $i['begin_chapter']; ?></div>
-<a href="<?= base_url().'index.php/chapter/edit/'.$i['id_chapter'] ?>">Edition</a> |
-<a href="<?= base_url().'index.php/chapter/delete/'.$i['id_chapter'] ?>">Suprimer</a>
-<?php 
-	
-}
-?>
-<div><a href="<?= base_url().'index.php/chapter/add_new_chapter' ?>">Ajouter un nouveaux chapitre</a></div>
+
+
 <div class="content-wrapper">
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -29,29 +16,29 @@ foreach ($chapter as $i)
     <div class="box-header with-border">
       <h3 class="box-title">Liste des chapitre</h3>
         <div class="box-body">
-          <a href="<?=base_url.'index.php/chapter/add_new_chapter'; ?>" class="btn btn-danger" style="margin-bottom: 10px;">Ajouter une leçon</a>
+          <a href="<?=base_url().'index.php/chapter/add_new_chapter'; ?>" class="btn btn-danger" style="margin-bottom: 10px;">Ajouter un chapitre</a>
           <table id="website" class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Nom</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Catégorie</th>
-                <th>Professeur</th>
+                <th>Date de début</th>
+                <th>Numéro du chapitre</th>
+                <th>Cours</th>
+                
               </tr>
             </thead>
             <tbody>
-	        	<?php foreach($lessons as $lesson): ?>
+	        	<?php foreach($chapter as $chapter): ?>
 				<tr>
-					<td><?=$lesson->id_lesson?></td>
-					<td><?=$lesson->name_lesson?></td>
-					<td><?=$lesson->description_lesson?></td>
-					<td><?=$lesson->begin_lesson.' au '.$lesson->end_lesson?></td>
-					<td><?=$lesson->name_category?></td>
-					<td><?=$lesson->firstname_teacher.' '.$lesson->lastname_teacher?></td>
+					<td><?=$chapter['id_chapter']?></td>
+					<td><?=$chapter['name_chapter']?></td>
+					<td><?=$chapter['begin_chapter']?></td>
+					<td><?=$chapter['num_chapter']?></td>
+					<td><?//=$chapter->name_category?></td>
+					
   				</tr>	
-	        	<?php endforeach ?>
+	        	<?php endforeach; ?>
             </tbody>
             <tfoot>
               <tr>

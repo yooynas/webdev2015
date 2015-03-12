@@ -20,7 +20,7 @@ class Chapter extends CI_Controller
 		
 		$data['contenu'] = '/chapter/V_chapter';
         $data['chapter'] = $this->M_chapter->get();
-		$data['modules'] = $this->M_module->get();
+		$data['lessons'] = $this->M_lessons->get();
 		$this->load->view('admin/base', $data);
 		
 		
