@@ -72,9 +72,10 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">NAVIGATION</li>
-            <li class="treeview"><a href="<?=base_url('admin/home')?>"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span></a></li>
-            <li class="treeview"><a href="<?=base_url('admin/students')?>"><i class="fa fa-users"></i> <span>Etudiants</span></a></li>
-            <li class="treeview"><a href="<?=base_url('auth/logout')?>"><i class="fa fa-sign-out"></i> <span>Deconnexion</span></a></li>
+            <li class="treeview"><a href="<?=site_url('admin/home')?>"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span></a></li>
+            <li class="treeview"><a href="<?=site_url('admin/students')?>"><i class="fa fa-users"></i> <span>Etudiants</span></a></li>
+            <li class="treeview"><a href="<?=site_url('admin/lessons')?>"><i class="fa fa-folder-open"></i> <span>Leçons</span></a></li>
+            <li class="treeview"><a href="<?=site_url('auth/logout')?>"><i class="fa fa-sign-out"></i> <span>Deconnexion</span></a></li>
           </ul>
         </section>
         <!-- /.sidebar -->

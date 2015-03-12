@@ -114,7 +114,7 @@ class Lessons extends CI_Controller {
 					'fk_holder_lesson'   => 1
 	       		);
 	  		    $this->M_lessons->save($data,$this->input->post('id_lesson'));
-		  		redirect('lessons');
+		  		redirect('admin/lessons');
 	        } 
 	}
 

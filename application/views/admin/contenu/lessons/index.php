@@ -8,23 +8,52 @@
 
 <!-- Main content -->
 <section class="content">
-	<?php foreach($lessons as $lesson): ?>
-	  	<div class="col-sm-6 col-md-4">
-	    	<div class="thumbnail">
-	      		<div class="caption">
-	        		<h3><?=$lesson->name_lesson?></h3>
-	        		<p><?=$lesson->description_lesson?></p>
-	        		<p>Date : <?=$lesson->begin_lesson.' au '.$lesson->end_lesson?></p>
-	        		<p>Categorie : <?=$lesson->name_category?></p>
-	        		<p>Professeur : <?=$lesson->firstname_teacher.' '.$lesson->lastname_teacher?></p>
-	        		<p>
-	        			<a href="<?=site_url("chapter")?>/" class="btn btn-primary" role="button">Voir</a> 
-						<a href="<?=site_url("admin/lessons")?>/edit/<?=$lesson->id_lesson?>" class="btn btn-warning" role="button">Edition</a>
-	        			<a href="<?=site_url("admin/lessons")?>/delete/<?=$lesson->id_lesson?>" class="btn btn-danger" role="button">Supprimer</a>
-	        		</p>
-	      		</div>
-	    	</div>
-	    </div>
-    <?php endforeach; ?>
+
+  <!-- Default box -->
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Liste des leçons</h3>
+        <div class="box-body">
+          <a href="<?=base_url('lessons/add')?>" class="btn btn-danger" style="margin-bottom: 10px;">Ajouter une leçon</a>
+          <table id="website" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Catégorie</th>
+                <th>Professeur</th>
+              </tr>
+            </thead>
+            <tbody>
+	        	<?php foreach($lessons as $lesson): ?>
+				<tr>
+					<td><?=$lesson->id_lesson?></td>
+					<td><?=$lesson->name_lesson?></td>
+					<td><?=$lesson->description_lesson?></td>
+					<td><?=$lesson->begin_lesson.' au '.$lesson->end_lesson?></td>
+					<td><?=$lesson->name_category?></td>
+					<td><?=$lesson->firstname_teacher.' '.$lesson->lastname_teacher?></td>
+  				</tr>	
+	        	<?php endforeach ?>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>#</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Edition</th>
+              </tr>
+            </tfoot>
+          </table>
+    </div>
+    <div class="box-body">
+      Hello world !
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
