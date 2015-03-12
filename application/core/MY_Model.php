@@ -60,6 +60,28 @@ class MY_Model extends CI_Model {
         
         return $this->db->get($this->table_name)->$method();
     }
+    /* GET_BY upgrade en cours
+        Récupère uniquement les informations qu'on a besoin.
+        paramètres :
+        $key            array ou string
+        $value          string ou NULL si $key = array
+        $orwhere        Boolean Définit la méthode OU ou ET suivant le paramètre $orwhere.
+        $count          int Nombre d'entrées souhaitées. 0 ou FALSE pour tout recevoir.
+    */
+    public function get_by_bis($key, $val = FALSE, $orwhere = FALSE, $count = FALSE) {
+        if(!is_array($key)) {
+            // Si on recherche dans une seule colonne, pas besoin de array, on passe donc $key et $val
+            $this->db->where(htmlentities($key), htmlentities($val));
+        } else {
+            $key = array_map('htmlentities', $key);
+            $where_method = $orwhere === TRUE ? 'or_where' : 'where';
+            $this->db->$where_method($key);
+        }
+        $count === FALSE || $this->db->limit($count);
+        $method = $count ? 'row_array' : 'result_array';
+        
+        return $this->db->get($this->table_name)->$method();
+    }
     /* GET_KEY_VALUE
         Renvoie un array formaté tel quel : "'$key_field' => '$value_field'".
         paramètres :
