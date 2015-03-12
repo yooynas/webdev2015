@@ -5,7 +5,6 @@ class Modules extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_module');
-        $this->load->model('M_question');
 	}
     
     public function get_document_by_module() {
@@ -50,11 +49,6 @@ class Modules extends CI_Controller
     
     }
     
-    
-	public function index() {        
-        $this->get_questions_by_module();  
-
-	}
 }
 
 ?>

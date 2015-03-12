@@ -59,7 +59,7 @@ class Chapter extends CI_Controller
        		
 		 	$this->M_chapter->save($data);
          	
-         	redirect('chapter/add_new_chapter');
+         	redirect('chapter');
          	
          }
 		
@@ -76,11 +76,15 @@ class Chapter extends CI_Controller
 
          	if ($this->form_validation->run() === FALSE )
          	{
-            	$this->index();
+            	$data['contenu']    = 'chapter/V_chapter_edit';
+				$data['lessons'] = $this->M_lessons->get();
+				$data['content']    = $this->M_chapter->get([$id]);
+				$this->load->view('templates/base', $data);
             
          	} 
          	else 
          	{
+         		
          		$data = array(
 	            'name_chapter'=>$this->input->post('name_chapter'),
 	            'begin_chapter'=>$this->input->post('date_chapter'),
@@ -88,12 +92,24 @@ class Chapter extends CI_Controller
 	            'fk_lessons_chapter'=>$this->input->post('lessons')
        			);
        		$this->M_chapter->save($data,$this->input->post('id_chapter'));
-			$data['contenu']    = 'chapter/V_chapter_edit';
-			$data['lessons'] = $this->M_lessons->get();
-			$data['content']    = $this->M_chapter->get([$id]);
-			$this->load->view('templates/base', $data);
-	}
+			redirect('chapter');
+			
+			}
 	
 
+	}
+	public function delete($id=null)
+	{
+		if($id==null)
+		{
+			redirect('chapter');
+		}
+		else
+		{
+			$this->M_chapter->delete($id);
+			redirect('chapter');
+
+		}
+	}
 }
 ?>
