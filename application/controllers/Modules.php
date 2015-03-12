@@ -5,7 +5,7 @@ class Modules extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_module');
-        $this->load->model('M_question');
+        
 	}
     
     public function get_document_by_module() {
@@ -20,8 +20,7 @@ class Modules extends CI_Controller
         $data['contenu'] = 'modules/template_theory';
         $data['id'] = $this->uri->segment(3);
 		$this->load->view('templates/base', $data);
-       
-        
+           
     }
     
     public function add_module() {
@@ -49,12 +48,7 @@ class Modules extends CI_Controller
         $this->M_module->delete(array($nums));
     
     }
-    
-    
-	public function index() {        
-        $this->get_questions_by_module();  
 
-	}
 }
 
 ?>
