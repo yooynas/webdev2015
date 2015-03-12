@@ -23,7 +23,7 @@ class Students extends CI_Controller
 
 	public function index() {
 		
-		$students = '';
+		$data['students'] = $this->StudentsManager->get_all_students();
 	    
 	    $data['contenu'] = 'students/index';
 		$this->load->view('admin/base', $data);
