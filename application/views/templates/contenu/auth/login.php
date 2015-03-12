@@ -23,6 +23,13 @@
     	<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
   	</div>
 	<?=form_error('password')?>
+  	<div class="form-group">
+    	<label for="type">Connexion en tant que</label>
+		<select class="form-control" name="type">
+		  <option value="student">Etudiant</option>
+		  <option value="teacher">Professeur</option>
+		</select>
+  	</div>
 	<?php if(isset($errors['password'])) { echo $errors['password']; } ?>
   	<button type="submit" class="btn btn-default">Submit</button>
 </form>
