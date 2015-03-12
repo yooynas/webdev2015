@@ -96,34 +96,76 @@ class auth extends CI_Controller
 		// Si le formulaire est correctement rempli
 		if($this->form_validation->run()) {
 			
-	        $check_pass = $this->AuthManager->check_pass($this->input->post('email'));
-	        	        	        
-	        if ($this->input->post('password') == $this->encrypt->decode($check_pass->pass_student)) {
+			$type = $this->input->post('type');
 			
-				// Je stock les infos de l'utilisateur dans des variables
-				$data = array();
-				$data['email'] = $this->input->post('email');
-				$data['password'] = $this->input->post('password');
-				
-				// Je récupère les infos du compte avec l'adresse email
-				$db_check_account = $this->AuthManager->check_account($data['email']);
-							
-				$userData = array(
-				                   'id'  	   => $db_check_account->id_student,
-				                   'firstname'  => $db_check_account->firstname_student,
-				                   'lastname'  => $db_check_account->lastname_student,
-				                   'access'     => 'student',
-				                   'logged_in' => TRUE
-				               );
-				
-				$this->session->set_userdata($userData);
-				
-				redirect('chapter');
+			if ($type === 'student') {
 			
+		        $check_pass = $this->AuthManager->check_pass($this->input->post('email'));
+		        	        	        
+		        if ($this->input->post('password') == $this->encrypt->decode($check_pass->pass_student)) {
+				
+					// Je stock les infos de l'utilisateur dans des variables
+					$data = array();
+					$data['email'] = $this->input->post('email');
+					$data['password'] = $this->input->post('password');
+					
+					// Je récupère les infos du compte avec l'adresse email
+					$db_check_account = $this->AuthManager->check_account($data['email']);
+								
+					$userData = array(
+					                   'id'  	   => $db_check_account->id_student,
+					                   'firstname'  => $db_check_account->firstname_student,
+					                   'lastname'  => $db_check_account->lastname_student,
+					                   'access'     => 'student',
+					                   'admin' => 0,
+					                   'logged_in' => TRUE
+					               );
+					
+					$this->session->set_userdata($userData);
+					
+					redirect('chapter');
+				
+				}
+				else {
+					
+			        $this->session->set_flashdata('error', '<p style="color:#ad4442">Mot de passe incorrect !</p>');
+					
+				}
+				
 			}
-			else {
+			elseif ($type === 'teacher') {
+			
+		        $check_pass = $this->AuthManager->check_pass_teacher($this->input->post('email'));
+		        	        	        
+		        if ($this->input->post('password') == $this->encrypt->decode($check_pass->pass_teacher)) {
 				
-		        $this->session->set_flashdata('error', '<p style="color:#ad4442">Mot de passe incorrect !</p>');
+					// Je stock les infos de l'utilisateur dans des variables
+					$data = array();
+					$data['email'] = $this->input->post('email');
+					$data['password'] = $this->input->post('password');
+					
+					// Je récupère les infos du compte avec l'adresse email
+					$db_check_account = $this->AuthManager->check_account_teacher($data['email']);
+								
+					$userData = array(
+					                   'id'  	   => $db_check_account->id_teacher,
+					                   'firstname'  => $db_check_account->firstname_teacher,
+					                   'lastname'  => $db_check_account->lastname_teacher,
+					                   'access'     => 'teacher',
+					                   'admin'     => $db_check_account->rank_teacher,
+					                   'logged_in' => TRUE
+					               );
+					
+					$this->session->set_userdata($userData);
+					
+					redirect('chapter');
+				
+				}
+				else {
+					
+			        $this->session->set_flashdata('error', '<p style="color:#ad4442">Mot de passe incorrect !</p>');
+					
+				}
 				
 			}
 			

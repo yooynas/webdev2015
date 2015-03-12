@@ -7,12 +7,8 @@ class Chapter extends CI_Controller
 		$this->load->model('M_chapter');
 		$this->load->model('M_module');
 		$this->load->model('M_lessons');
-
-
-        
-
-
-        
+        // $this->load->controller('module');
+        // $this->load->controller('module');
 		if (!$this->session->userdata('id')) 
 		{
 			redirect('auth/login', 'refresh'); 
@@ -77,13 +73,14 @@ class Chapter extends CI_Controller
          	if ($this->form_validation->run() === FALSE )
          	{
             	$data['contenu']    = 'chapter/V_chapter_edit';
-				
+				$data['lessons'] = $this->M_lessons->get();
 				$data['content']    = $this->M_chapter->get([$id]);
 				$this->load->view('templates/base', $data);
             
          	} 
          	else 
          	{
+         		
          		$data = array(
 	            'name_chapter'=>$this->input->post('name_chapter'),
 	            'begin_chapter'=>$this->input->post('date_chapter'),
@@ -91,13 +88,24 @@ class Chapter extends CI_Controller
 	            'fk_lessons_chapter'=>$this->input->post('lessons')
        			);
        		$this->M_chapter->save($data,$this->input->post('id_chapter'));
-			$data['contenu']    = 'chapter/V_chapter_edit';
-			$data['lessons'] = $this->M_lessons->get();
-			$data['content']    = $this->M_chapter->get([$id]);
-			$this->load->view('templates/base', $data);
+			redirect('chapter');
+			
 			}
 	
 
+	}
+	public function delete($id=null)
+	{
+		if($id==null)
+		{
+			redirect('chapter');
+		}
+		else
+		{
+			$this->M_chapter->delete($id);
+			redirect('chapter');
+
+		}
 	}
 }
 ?>

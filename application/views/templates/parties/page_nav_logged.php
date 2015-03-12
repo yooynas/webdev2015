@@ -23,6 +23,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gear"></i> Mon compte<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?=site_url('users/infos')?>"><i class="fa fa-user"></i> Mes infos</a></li>
+            <?php if ($this->session->userdata('admin') == 1) : ?>
+            	<li class="divider"></li>
+	            <li><a href="<?=site_url('admin/home')?>"><i class="fa fa-dashboard"></i> Administration</a></li>
+	        <?php endif; ?>
             <li class="divider"></li>
             <li><a href="<?=site_url('auth/logout')?>"><i class="fa fa-sign-out"></i> Se deconnecter</a></li>
           </ul>

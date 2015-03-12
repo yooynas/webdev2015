@@ -6,13 +6,14 @@ class M_auth extends MY_Model {
 		parent::__construct();
 	}	
 	
-	private $table_users = 'students';
+	private $table_students = 'students';
+	private $table_teachers = 'teachers';
 	
 	public function check_activation_account($email, $key) {
 
 		return $this->db
 				->select('id_student')
-				->from($this->table_users)
+				->from($this->table_students)
 				->where('email_student', $email)
 				->where('activationkey_student', $key)
 				->get()
@@ -28,14 +29,14 @@ class M_auth extends MY_Model {
 		
 		return $this->db
 				->where('email_student', $email)
-				->update($this->table_users, $updateData);
+				->update($this->table_students, $updateData);
 	}
 	
 	public function check_account($email) {
 
 		return $this->db
 				->select('*')
-				->from($this->table_users)
+				->from($this->table_students)
 				->where('email_student', $email)
 				->get()
 				->row();
@@ -45,8 +46,28 @@ class M_auth extends MY_Model {
 
 		return $this->db
 				->select('pass_student')
-				->from($this->table_users)
+				->from($this->table_students)
 				->where('email_student', $email)
+				->get()
+				->row();
+	}
+	
+	public function check_account_teacher($email) {
+
+		return $this->db
+				->select('*')
+				->from($this->table_teachers)
+				->where('email_teacher', $email)
+				->get()
+				->row();
+	}
+	
+	public function check_pass_teacher($email) {
+
+		return $this->db
+				->select('pass_teacher')
+				->from($this->table_teachers)
+				->where('email_teacher', $email)
 				->get()
 				->row();
 	}
