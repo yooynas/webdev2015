@@ -98,5 +98,18 @@ class Chapter extends CI_Controller
 	
 
 	}
+	public function delete($id=null)
+	{
+		if($id==null)
+		{
+			redirect('chapter');
+		}
+		else
+		{
+			$this->M_chapter->delete($id);
+			redirect('chapter');
+
+		}
+	}
 }
 ?>
