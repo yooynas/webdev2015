@@ -16,13 +16,24 @@ class Lessons extends CI_Controller {
 		}
 	}
 
-	public function index()
+	public function index($cat=null)
 	{
-		$data['contenu'] = 'lessons/index';
-		//$data['lessons'] = $this->M_lessons->get_all();
-		$data['lessons'] = $this->M_lessons->get_info();
-		//$data['infos'] = $this->M_lessons->get_info();
-		$this->load->view('templates/base', $data);
+		if($cat==null)
+		{
+			$data['contenu'] = 'lessons/index';
+			//$data['lessons'] = $this->M_lessons->get_all();
+			$data['lessons'] = $this->M_lessons->get_info();
+			//$data['infos'] = $this->M_lessons->get_info();
+			$this->load->view('templates/base', $data);
+		}
+		else
+		{
+			$data['contenu'] = 'lessons/index';
+			//$data['lessons'] = $this->M_lessons->get_all();
+			$data['lessons'] = $this->M_lessons->get_info($cat);
+			//$data['infos'] = $this->M_lessons->get_info();
+			$this->load->view('templates/base', $data);
+		}
 	}
 
 
@@ -84,9 +95,9 @@ class Lessons extends CI_Controller {
 			$this->form_validation->set_rules('cat_lesson', 'cat', 'required');
 	        if ($this->form_validation->run() === FALSE)
 	        {
-	        			if($id==null) {
-			redirect('lessons');
-		}
+		    if($id==null) {
+				redirect('lessons');
+			}
 			$data['contenu']    = 'lessons/edit';
 			$data['categories'] = $this->M_category->get();
 			$data['content']    = $this->M_lessons->get([$id]);
@@ -102,9 +113,14 @@ class Lessons extends CI_Controller {
 					'fk_category_lesson' => $this->input->post('cat_lesson'),
 					'fk_holder_lesson'   => 1
 	       		);
-	  		    $this->M_lessons->save($data,14);
+	  		    $this->M_lessons->save($data,$this->input->post('id_lesson'));
 		  		redirect('lessons');
 	        } 
+	}
+
+	public function get_by_cat($id)
+	{
+
 	}
 
 

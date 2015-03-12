@@ -21,10 +21,45 @@ class Category extends CI_Controller {
 		$this->load->view('templates/base', $data);		
 	}
 
-	public function editer($id)
+	public function edit($id=null)
 	{
-		
+
+			$this->form_validation->set_rules('id_category', 'ID', 'required');
+			$this->form_validation->set_rules('titre_category', 'Titre', 'required');
+
+	        if ($this->form_validation->run() === FALSE)
+	        {
+		    if($id==null) {
+				redirect('category');
+			}
+			$data['contenu']    = 'categories/edit';
+			$data['content'] = $this->M_category->get([$id]);
+			$this->load->view('templates/base', $data);
+	        } 
+	        else 
+	        {
+	            $data = array(
+					'name_category'  => $this->input->post('titre_category')
+	       		);
+	  		    $this->M_category->save($data,$this->input->post('id_category'));
+		  		redirect('category');
+	        } 
 	}
+
+	public function delete($id=null)
+	{
+		if($id==null)
+		{
+			redirect('category');
+		}
+		else
+		{
+			$this->M_category->delete($id);
+			redirect('category');
+
+		}
+	}
+
 
 }
 

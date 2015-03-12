@@ -8,9 +8,9 @@
 	      		<div class="caption">
 	        		<h3><?=$cat['name_category']?></h3>
 	        		<p>
-	        			<a href="<?=site_url("lessons")?>/<?=$cat['id_category']?>" class="btn btn-primary" role="button">Voir</a> 
-						<a href="<?=site_url("lessons")?>/edit/" class="btn btn-warning" role="button">Edition</a>
-	        			<a href="<?=site_url("lessons")?>/delete/" class="btn btn-danger" role="button">Supprimer</a>
+	        			<a href="<?=site_url("lessons/index")?>/<?=$cat['id_category']?>" class="btn btn-primary" role="button">Voir</a> 
+						<a href="<?=site_url("category/edit")?>/<?=$cat['id_category']?>" class="btn btn-warning" role="button">Edition</a>
+	        			<a href="<?=site_url("category/delete")?>/<?=$cat['id_category']?>" class="btn btn-danger" role="button">Supprimer</a>
 	        		</p>
 	      		</div>
 	    	</div>

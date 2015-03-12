@@ -11,15 +11,27 @@ class M_lessons extends MY_Model {
     }
     
     
-    function get_info()
+    function get_info($id=null)
     {
-        return $this->db
-        ->select('*')
-        ->from('lessons')
-        ->join('teachers', 'lessons.fk_holder_lesson = teachers.id_teacher')
-        ->join('category', 'lessons.fk_category_lesson = category.id_category')
-        ->get()
-        ->result();
+        if($id==null)
+            return $this->db
+            ->select('*')
+            ->from('lessons')
+            ->join('teachers', 'lessons.fk_holder_lesson = teachers.id_teacher')
+            ->join('category', 'lessons.fk_category_lesson = category.id_category')
+            ->get()
+            ->result();
+        else
+        {
+            return $this->db
+            ->select('*')
+            ->from('lessons')
+            ->join('teachers', 'lessons.fk_holder_lesson = teachers.id_teacher')
+            ->join('category', 'lessons.fk_category_lesson = category.id_category')
+            ->where('lessons.fk_category_lesson = '.$id)
+            ->get()
+            ->result();
+        }
     }
 
 }
