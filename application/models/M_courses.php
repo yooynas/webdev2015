@@ -39,5 +39,23 @@
             //SELECT * FROM follows INNER JOIN modules ON FK_module_follow = id_module WHERE fk_student_follow = session
         }
         
+        public function avgFinish ($id){
+            
+            $options = array (
+                              "fk_student_follow" => $id,
+                              "count_follow" => 1
+                              );
+            
+            $this->db->from('modules');
+            $nbmodule = $this->db->count_all_results();
+            
+            $this->db->from('follows')->where($options);
+            $complete = $this->db->count_all_results();
+
+            return ($complete / $nbmodule)*100;
+        
+        //SELECT COUNT(count_follow) FROM follows WHERE fk_student_follow =6 AND count_follow = 1;
+        }
+        
         
     }
