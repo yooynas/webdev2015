@@ -19,8 +19,8 @@
 	        		<p>Professeur : <?=$lesson->firstname_teacher.' '.$lesson->lastname_teacher?></p>
 	        		<p>
 	        			<a href="<?=site_url("chapter")?>/" class="btn btn-primary" role="button">Voir</a> 
-						<a href="<?=site_url("lessons")?>/edit/<?=$lesson->id_lesson?>" class="btn btn-warning" role="button">Edition</a>
-	        			<a href="<?=site_url("lessons")?>/delete/<?=$lesson->id_lesson?>" class="btn btn-danger" role="button">Supprimer</a>
+						<a href="<?=site_url("admin/lessons")?>/edit/<?=$lesson->id_lesson?>" class="btn btn-warning" role="button">Edition</a>
+	        			<a href="<?=site_url("admin/lessons")?>/delete/<?=$lesson->id_lesson?>" class="btn btn-danger" role="button">Supprimer</a>
 	        		</p>
 	      		</div>
 	    	</div>
