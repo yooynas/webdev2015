@@ -7,7 +7,7 @@ class MY_Model extends CI_Model {
     
     function __construct() {
         parent::__construct();
-        $this->db->order_by($table_order);
+        $this->db->order_by($this->$table_order);
     }
     
     /*
