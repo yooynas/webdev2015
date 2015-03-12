@@ -12,6 +12,10 @@
 .jeremy .arrowToModif{margin-top:10%;}
 /*--------------------FIN-JEREMY----------------------------------------------------*/
 /*--------------------Quentin----------------------------------------------------*/
+.navbar img{
+    width: auto;
+    height: 35px;
+}
 .menu{
     font-size: 16px;
     font-family: 'Bree Serif', serif;
