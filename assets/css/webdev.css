@@ -11,3 +11,16 @@
 .jeremy .avancement h4{text-decoration:underline;}
 .jeremy .arrowToModif{margin-top:10%;}
 /*--------------------FIN-JEREMY----------------------------------------------------*/
+/*--------------------Quentin----------------------------------------------------*/
+.menu{
+    font-size: 16px;
+    font-family: 'Bree Serif', serif;
+}
+.menu ul li ul li{
+    font-size: 16px;
+}
+.menu i.fa-navicon{
+    font-size: 18px;
+    margin-right: 5px;
+}
+/*--------------------FIN-quentin----------------------------------------------------*/
