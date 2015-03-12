@@ -59,7 +59,7 @@ class Chapter extends CI_Controller
        		
 		 	$this->M_chapter->save($data);
          	
-         	redirect('chapter/add_new_chapter');
+         	redirect('chapter');
          	
          }
 		
@@ -76,7 +76,10 @@ class Chapter extends CI_Controller
 
          	if ($this->form_validation->run() === FALSE )
          	{
-            	$this->index();
+            	$data['contenu']    = 'chapter/V_chapter_edit';
+				
+				$data['content']    = $this->M_chapter->get([$id]);
+				$this->load->view('templates/base', $data);
             
          	} 
          	else 
@@ -92,8 +95,9 @@ class Chapter extends CI_Controller
 			$data['lessons'] = $this->M_lessons->get();
 			$data['content']    = $this->M_chapter->get([$id]);
 			$this->load->view('templates/base', $data);
-	}
+			}
 	
 
+	}
 }
 ?>
