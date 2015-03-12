@@ -4,7 +4,7 @@ echo "<h1>Liste des questions pour votre module</h1>";
 
 var_dump($questions);
 
-echo "<form action=''>";
+//echo "<form action=''>";
 
 foreach($questions as $question) {
     
