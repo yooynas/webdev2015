@@ -14,11 +14,8 @@ class Modules extends CI_Controller
     }
     
     public function get_theory_by_module() {
-        
-        //$id_module = $this->uri->segment(3);
         $data['contenu'] = 'modules/template_theory';
         $data['id'] = $this->uri->segment(3);
-        $data['nb_questions'] = $this->uri->segment(4);
 		$this->load->view('templates/base', $data);
        
         
