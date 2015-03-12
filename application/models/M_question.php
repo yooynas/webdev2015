@@ -6,7 +6,7 @@ class M_question extends MY_Model {
 
         $this->table_name = 'questions';
         $this->primary_key = 'id_question';
-        $this->table_order = 'id_question random';
+        $this->table_order = 'RAND()';
         
     }
     
