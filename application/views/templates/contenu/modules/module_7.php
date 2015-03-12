@@ -1,0 +1,2 @@
+<h1>Exercice évalué</h1>
+<p>Réalisez votre CV (une page html, voir modèle en ligne) et postez votre page html sur le drive renseigné par le chargé de cours avant le cours suivant, nommez votre fichier par vos nom et prénom.</p>
