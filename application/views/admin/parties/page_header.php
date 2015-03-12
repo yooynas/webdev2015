@@ -75,7 +75,9 @@
             <li class="treeview"><a href="<?=site_url('admin/home')?>"><i class="fa fa-dashboard"></i> <span>Tableau de bord</span></a></li>
             <li class="treeview"><a href="<?=site_url('admin/students')?>"><i class="fa fa-users"></i> <span>Etudiants</span></a></li>
             <li class="treeview"><a href="<?=site_url('admin/lessons')?>"><i class="fa fa-folder-open"></i> <span>Leçons</span></a></li>
+            <li class="treeview"><a href="<?=site_url('admin/chapter')?>"><i class="fa fa-folder-open"></i> <span>Chapitre</span></a></li>
             <li class="treeview"><a href="<?=site_url('auth/logout')?>"><i class="fa fa-sign-out"></i> <span>Deconnexion</span></a></li>
+            
           </ul>
         </section>
         <!-- /.sidebar -->
