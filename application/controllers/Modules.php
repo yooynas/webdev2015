@@ -18,6 +18,7 @@ class Modules extends CI_Controller
         //$id_module = $this->uri->segment(3);
         $data['contenu'] = 'modules/template_theory';
         $data['id'] = $this->uri->segment(3);
+        $data['nb_questions'] = $this->uri->segment(4);
 		$this->load->view('templates/base', $data);
        
         
