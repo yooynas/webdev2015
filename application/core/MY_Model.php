@@ -2,12 +2,11 @@
 class MY_Model extends CI_Model {
     public $table_name = '';
     public $primary_key = '';
-    public $table_order = '';
+    public $table_order = '' ;
     public $filter = 'intval';
     
     function __construct() {
         parent::__construct();
-        //$this->db->order_by($this->$table_order);
     }
     
     /*
@@ -37,6 +36,7 @@ class MY_Model extends CI_Model {
         }
         $unique === FALSE || $this->db->limit(1);
         $method = $unique ? 'row_array' : 'result_array';
+        $this->db->order_by($this->table_order);
         return $this->db->get($this->table_name)->$method();
     }
     /* GET_BY
@@ -57,6 +57,7 @@ class MY_Model extends CI_Model {
             $this->db->$where_method($key);
         }
         $unique === FALSE || $this->db->limit(1);
+        // Si $unique = TRUE, on renvoie un tableau d'une ligne, sinon il renvoie un tableau de tout.
         $method = $unique ? 'row_array' : 'result_array';
         
         return $this->db->get($this->table_name)->$method();
@@ -79,8 +80,16 @@ class MY_Model extends CI_Model {
             $this->db->$where_method($key);
         }
         $count === FALSE || $this->db->limit($count);
-        $method = $count ? 'row_array' : 'result_array';
         
+        $method = $count ? 'row_array' : 'result_array';
+        if ($count == 1) {
+            // Si $count demande 1 seule ligne :
+            $method = 'row_array'; // Transforme le retour en array de 1 ligne
+        } else {
+            // Si count vaut FALSE (=tout), ou plus de 1 :
+            $method = 'result_array'; // Transforme le retour en array
+        }
+        $this->db->order_by($this->table_order);
         return $this->db->get($this->table_name)->$method();
     }
     /* GET_KEY_VALUE
