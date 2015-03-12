@@ -1,2 +1,2 @@
-<div id="content"><?php $this->load->view('templates/contenu/modules/module_'.$id); ?></div>
-<a href='<?= base_url().'index.php/quizz/get_questions/'.$id; ?>'>Lien vers les questions</a>
+<div id="content"><?php $this->load->view('templates/contenu/modules/module_'.$id); ?></div
+<a href='<?= base_url().'index.php/modules/get_questions_by_module/'.$module['id_module']; ?>'>Lien vers les questions</a>

@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://localhost/webdev2015/';
+$config['base_url'] = 'http://127.0.0.1/Dams/webdev2015/';
 
 /*
 |--------------------------------------------------------------------------
