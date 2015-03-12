@@ -6,7 +6,7 @@ foreach ($chapter as $i)
 <div class="num" style="display:inline-block"><?= $i['num_chapter']; ?></div>
 <div class="name" style="display:inline-block"><?= $i['name_chapter']; ?></div>
 <div class="begin"><?= $i['begin_chapter']; ?></div>
-<a href="<?= base_url().'index.php/chapter/edit' ?>">Edition</a>
+<a href="<?= base_url().'index.php/chapter/edit/'.$i['id_chapter'] ?>">Edition</a>
 <?php 
 	foreach ($modules as $module)
 	{

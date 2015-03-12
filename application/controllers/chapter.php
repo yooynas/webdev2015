@@ -77,13 +77,14 @@ class Chapter extends CI_Controller
          	if ($this->form_validation->run() === FALSE )
          	{
             	$data['contenu']    = 'chapter/V_chapter_edit';
-				
+				$data['lessons'] = $this->M_lessons->get();
 				$data['content']    = $this->M_chapter->get([$id]);
 				$this->load->view('templates/base', $data);
             
          	} 
          	else 
          	{
+         		
          		$data = array(
 	            'name_chapter'=>$this->input->post('name_chapter'),
 	            'begin_chapter'=>$this->input->post('date_chapter'),
@@ -91,10 +92,8 @@ class Chapter extends CI_Controller
 	            'fk_lessons_chapter'=>$this->input->post('lessons')
        			);
        		$this->M_chapter->save($data,$this->input->post('id_chapter'));
-			$data['contenu']    = 'chapter/V_chapter_edit';
-			$data['lessons'] = $this->M_lessons->get();
-			$data['content']    = $this->M_chapter->get([$id]);
-			$this->load->view('templates/base', $data);
+			redirect('chapter');
+			
 			}
 	
 
