@@ -54,7 +54,14 @@
 
             return ($complete / $nbmodule)*100;
         
-        //SELECT COUNT(count_follow) FROM follows WHERE fk_student_follow =6 AND count_follow = 1;
+        //SELECT COUNT(count_follow) FROM follows WHERE fk_student_follow =session AND count_follow = 1;
+        }
+        
+        public function get_annonce ($id) {
+            $options = array (
+                             "fk_lessons" => $id
+                             );
+            return $this->db->select('*')->from('announcements')->where($options)->get()->result();
         }
         
         

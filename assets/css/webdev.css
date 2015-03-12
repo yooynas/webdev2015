@@ -2,3 +2,12 @@
     font-style: italic;
     color: cadetblue;
 }
+
+
+
+/*--------------------JEREMY----------------------------------------------------*/
+.jeremy .avancement {border: solid 1px silver;padding:5%;}
+.jeremy .borderCourses{border: solid 1px silver;margin-top:2%;}
+.jeremy .avancement h4{text-decoration:underline;}
+.jeremy .arrowToModif{margin-top:10%;}
+/*--------------------FIN-JEREMY----------------------------------------------------*/

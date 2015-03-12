@@ -19,6 +19,8 @@
             $data['compelte'] = $this->M_courses->get_my_compelte($idStudent);
             $data['avancement'] = $this->M_courses->avgFinish($idStudent);
             
+            $data['annonce'] =$this->M_courses->get_annonce(intval($data['myLesson']));
+            
             $this->load->view('templates/base.php', $data);
         }
     }
