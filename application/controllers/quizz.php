@@ -15,9 +15,25 @@ class Quizz extends CI_Controller
         $data['contenu'] = 'modules/V_quizz';
         $id = $this->uri->segment(3);
         $query = $this->M_module->get_by('id_module', $id, NULL, TRUE);
-        $data['questions'] = $this->M_question->get_by_bis('fk_module_question', $id, NULL, $query['nb_questions']);
+        $data['questions'] = $this->M_question->get_by('fk_module_question', $id, NULL, $query['nb_questions']);
         $data['choices'] = $this->M_choice->get();
 		$this->load->view('templates/base', $data);
+    }
+    
+    function quizz_verif() {
+        $data['contenu'] = 'modules/V_reponses';
+        
+        $uris = $this->uri->segment(3);
+        $parturis = explode("-", $uris);
+       
+        for($i = 0; $i < count($parturis)-1; $i++) {
+        
+            $data['questions'][] = $getby = $this->M_question->get_by('id_question', $parturis[$i], NULL, FALSE);
+            
+        }
+        
+        $data['choices'] = $this->M_choice->get();
+        $this->load->view('templates/base', $data);
     }
     
 }
