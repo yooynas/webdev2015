@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="<?= img_url('logo_ifosup.jpg') ?>" /></a>
+      <a class="navbar-brand" href="http://www.ifosupwavre.be/" target="_blank"><img src="<?= img_url('logo_ifosup.jpg') ?>" /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

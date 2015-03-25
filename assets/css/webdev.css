@@ -14,7 +14,12 @@
 /*--------------------Quentin----------------------------------------------------*/
 .navbar img{
     width: auto;
-    height: 35px;
+    height: 50px;
+}
+
+.navbar-brand{
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 .menu{
     font-size: 16px;
@@ -30,5 +35,19 @@
 
 .menu div.form-group{
     margin-right: 50px;
+}
+
+table.chapter td{
+    padding: 0 0 0 10px!important;
+}
+
+table.chapter td p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table.chapter td a{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 /*--------------------FIN-quentin----------------------------------------------------*/
