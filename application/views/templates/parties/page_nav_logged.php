@@ -22,6 +22,12 @@
             </ul>
         </li>
       </ul>
+      <div class="input-group col-lg-3">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+          </span>
+    </div><!-- /input-group -->
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gear"></i> Mon compte<span class="caret"></span></a>

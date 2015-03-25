@@ -2,7 +2,7 @@
 <?php 
 	$this->load->view('/templates/parties/page_header');
 ?>
-	<body>
+	<body class="quentin">
 			<nav class="navbar navbar-default">
 				<?php 
 					// J'affiche une navigation en fonction de si l'utilisateur est connecté ou non
