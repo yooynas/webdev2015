@@ -7,7 +7,7 @@ class Students extends CI_Controller
 		
 		//	Obligatoire
 		parent::__construct();
-		
+		$this->load->library('table');
 		// J'inclus mon modèle, mes librairies, mes helpers, fichiers de langues etc...
 		$this->load->database();
 		$this->load->model('admin/M_Students', 'StudentsManager');

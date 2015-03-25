@@ -18,6 +18,7 @@ class Lessons extends CI_Controller {
 
 	public function index($cat=null)
 	{
+		$this->load->library('table');
 		if($cat==null)
 		{
 			$data['contenu'] = 'lessons/index';

@@ -27,10 +27,11 @@
                     $myLesson->num_chapter,
                     $myLesson->name_lesson,
                     anchor('/admin/chapter/edit/'.$myLesson->id_chapter, 'Editer'),
-                    anchor('/admin/chapter/delete/'.$myLesson->id_chapter, 'Supprimmer')
+                    anchor('/admin/chapter/delete/'.$myLesson->id_chapter, 'Supprimer')
                 );
             } 
-            $this->table->add_row('#', 'Nom', 'Date de début','Numéro du chapitre','Cours','Édition','Suppression');
+            
+           
             echo $this->table->generate();
           ?>
           

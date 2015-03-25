@@ -15,40 +15,25 @@
       <h3 class="box-title">Liste des étudiants</h3>
         <div class="box-body">
           <a href="<?=base_url('proprietaires/ajouter')?>" class="btn btn-danger" style="margin-bottom: 10px;">Ajouter un étudiant</a>
-          <table id="website" class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Edition</th>
-              </tr>
-            </thead>
-            <tbody>
-	        	<?php foreach ($students as $student): ?>
-				<tr>
-					<td><?=$student->id_student?></td>
-					<td><?=$student->firstname_student?></td>
-					<td><?=$student->lastname_student?></td>
-					<td><?=$student->email_student?></td>
-					<td></td>
-  				</tr>	
-	        	<?php endforeach ?>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>#</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Edition</th>
-              </tr>
-            </tfoot>
-          </table>
+         
+          <?php
+            $this->table->set_heading('#', 'Prénom', 'Nom','Email','Édition');
+            foreach($students as $student) {
+                $this->table->add_row(
+                    $student->id_student,
+                    $student->firstname_student,
+                    $student->lastname_student,
+                    $student->email_student,
+                    anchor('/admin/chapter/edit/'.$student->id_student, 'Editer')
+                    
+                );
+            } 
+            
+            echo $this->table->generate();
+          ?>
     </div>
     <div class="box-body">
-      Hello world !
+      
     </div><!-- /.box-body -->
   </div><!-- /.box -->
 
