@@ -22,12 +22,7 @@
             </ul>
         </li>
       </ul>
-      <div class="input-group col-lg-3">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-          </span>
-    </div><!-- /input-group -->
+
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-gear"></i> Mon compte<span class="caret"></span></a>
@@ -42,5 +37,14 @@
           </ul>
         </li>
       </ul>
+            <div class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-right inline-form">
+            <div class="form-group">
+              <input type="search" class="input-sm form-control" placeholder="Recherche">
+              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+            </div>
+          </form>
+
+    </div><!-- /input-group -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
