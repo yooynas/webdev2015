@@ -3,7 +3,7 @@
             <h4>Avancement</h4>
             <div class="progress">
                 <div class="progress-bar progress-bar-success" aria-valuenow="5"aria-valuemin="0" aria-valuemax="100" style="width:<?=$avancement?>%">
-                <?=intval($avancement)?> complété</div>
+                <?=intval($avancement)?> % complété</div>
             </div>
         </div>
     </div>
@@ -34,9 +34,9 @@
             <h4><?=$r->name_module?></h4>
             <?php
                 if ($r->count_follow == 1){
-                    echo "<p>module terminé</p>";
+                    echo "<p style='color:green;'>Module terminé</p>";
                 } elseif ($r->count_follow == 0){
-                    echo "<p>module en cour</p>";
+                    echo "<p style='color:red;'>Module en cours</p>";
                 }
             ?></div><div class="col-lg-1"></div>
             
@@ -55,6 +55,3 @@
     
     
 </div>
-    
-    
-    
