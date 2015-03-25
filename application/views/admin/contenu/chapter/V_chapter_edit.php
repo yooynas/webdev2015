@@ -1,7 +1,21 @@
 <body>
-<h2>Edition du  <?=$content[0]['name_chapter'];?></h2>
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  
+</section>
 
-<?= form_open('chapter/edit'); ?>
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="box">
+    <div class="box-header with-border">
+      
+        <div class="box-body">
+          <h2>Edition du  <?=$content[0]['name_chapter'];?></h2>
+
+<?= form_open('admin/chapter/edit'); ?>
 	
 	<?=form_label('Cours :','lessons') ?>
 	<span class="lessons">
@@ -49,3 +63,15 @@
 	
 	
 <?= form_close(); ?>
+          
+    </div>
+    <div class="box-body">
+      
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+
+</section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+
+
+

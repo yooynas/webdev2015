@@ -1,6 +1,23 @@
 <body>
-<h2>Nouveau Chapitre</h2>
-<?= form_open('chapter/add_chapter'); ?>
+
+	<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Gestion des chapitres
+  </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <!-- Default box -->
+  <div class="box">
+    <div class="box-header with-border">
+      
+        <div class="box-body">
+          <h2>Nouveau Chapitre</h2>
+<?= form_open('admin/chapter/add_chapter'); ?>
 	
 	<?=form_label('Cours :','lessons') ?>
 	<span class="lessons">
@@ -33,7 +50,14 @@
 	
 	
 <?= form_close(); ?>
-				
+    </div>
+    <div class="box-body">
+      
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+
+</section><!-- /.content -->
+</div><!-- /.content-wrapper -->			
 
 	
 	

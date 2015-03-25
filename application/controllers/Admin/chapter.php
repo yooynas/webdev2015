@@ -19,17 +19,14 @@ class Chapter extends CI_Controller
 	{
 		
 		$data['contenu'] = '/chapter/V_chapter';
-        $data['chapter'] = $this->M_chapter->get();
+
+        $data['myLessons'] = $this->M_chapter->get_Lesson();
+        $this->load->view('admin/base', $data); 
+     }
+	public function add_new_chapter() {
+		$data['contenu'] = '/chapter/V_chapter_add_new';
 		$data['lessons'] = $this->M_lessons->get();
 		$this->load->view('admin/base', $data);
-		
-		
-		
-	}
-	public function add_new_chapter() {
-		$data['contenu'] = 'chapter/V_chapter_add_new';
-		$data['lessons'] = $this->M_lessons->get();
-		$this->load->view('templates/base', $data);
 	}
 	
 	public function add_chapter() {
@@ -42,7 +39,7 @@ class Chapter extends CI_Controller
 
          if ($this->form_validation->run() === FALSE )
          {
-            $this->add_new_chapter();
+            redirect('admin/chapter/add_new_chapter');
             
          } 
          else 
@@ -56,7 +53,7 @@ class Chapter extends CI_Controller
        		
 		 	$this->M_chapter->save($data);
          	
-         	redirect('chapter');
+         	redirect('admin/chapter');
          	
          }
 		
@@ -73,10 +70,10 @@ class Chapter extends CI_Controller
 
          	if ($this->form_validation->run() === FALSE )
          	{
-            	$data['contenu']    = 'chapter/V_chapter_edit';
+            	$data['contenu']    = '/chapter/V_chapter_edit';
 				$data['lessons'] = $this->M_lessons->get();
 				$data['content']    = $this->M_chapter->get([$id]);
-				$this->load->view('templates/base', $data);
+				$this->load->view('admin/base', $data);
             
          	} 
          	else 
@@ -89,7 +86,7 @@ class Chapter extends CI_Controller
 	            'fk_lessons_chapter'=>$this->input->post('lessons')
        			);
        		$this->M_chapter->save($data,$this->input->post('id_chapter'));
-			redirect('chapter');
+			redirect('admin/chapter');
 			
 			}
 	
@@ -99,14 +96,15 @@ class Chapter extends CI_Controller
 	{
 		if($id==null)
 		{
-			redirect('chapter');
+			redirect('admin/chapter');
 		}
 		else
 		{
 			$this->M_chapter->delete($id);
-			redirect('chapter');
+			redirect('admin/chapter');
 
 		}
 	}
+	
 }
 ?>
