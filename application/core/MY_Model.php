@@ -39,14 +39,14 @@ class MY_Model extends CI_Model {
         $this->db->order_by($this->table_order);
         return $this->db->get($this->table_name)->$method();
     }
-    /* GET_BY
+    /* GET_BY ANCIENNE VERSION
         Récupère uniquement les informations qu'on a besoin.
         paramètres :
         $key            array ou string
         $value          string ou NULL si $key = array
         $orwhere        Boolean Définit la méthode OU ou ET suivant le paramètre $orwhere.
         $unique         Boolean Renvoie un ou tout les résultats.
-    */
+
     public function get_by($key, $val = FALSE, $orwhere = FALSE, $unique = FALSE) {
         if(!is_array($key)) {
             // Si on recherche dans une seule colonne, pas besoin de array, on passe donc $key et $val
@@ -62,7 +62,12 @@ class MY_Model extends CI_Model {
         
         return $this->db->get($this->table_name)->$method();
     }
-    /* GET_BY upgrade en cours
+    */
+    /* GET_BY
+        Nouvelle version :
+            Le dernier paramètre qui vallait soit FALSE soit TRUE pout maintenant être soit
+             * FALSE ou 0 = Renvoie tout les résultats
+             * int = Renvoie int résultats
         Récupère uniquement les informations qu'on a besoin.
         paramètres :
         $key            array ou string
@@ -70,7 +75,7 @@ class MY_Model extends CI_Model {
         $orwhere        Boolean Définit la méthode OU ou ET suivant le paramètre $orwhere.
         $count          int Nombre d'entrées souhaitées. 0 ou FALSE pour tout recevoir.
     */
-    public function get_by_bis($key, $val = FALSE, $orwhere = FALSE, $count = FALSE) {
+    public function get_by($key, $val = FALSE, $orwhere = FALSE, $count = FALSE) {
         if(!is_array($key)) {
             // Si on recherche dans une seule colonne, pas besoin de array, on passe donc $key et $val
             $this->db->where(htmlentities($key), htmlentities($val));
@@ -81,7 +86,6 @@ class MY_Model extends CI_Model {
         }
         $count === FALSE || $this->db->limit($count);
         
-        $method = $count ? 'row_array' : 'result_array';
         if ($count == 1) {
             // Si $count demande 1 seule ligne :
             $method = 'row_array'; // Transforme le retour en array de 1 ligne
