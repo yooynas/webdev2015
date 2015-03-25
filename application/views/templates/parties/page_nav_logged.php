@@ -37,11 +37,11 @@
           </ul>
         </li>
       </ul>
-            <div class="nav navbar-nav navbar-right">
+    <div class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-right inline-form">
             <div class="form-group">
-              <input type="search" class="input-sm form-control" placeholder="Recherche">
-              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+              <input type="search" class="input-sm form-control col-lg-3" placeholder="Recherche">
+              <button type="submit" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button>
             </div>
           </form>
 
