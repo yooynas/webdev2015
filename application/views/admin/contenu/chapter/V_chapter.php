@@ -17,45 +17,23 @@
       <h3 class="box-title">Liste des chapitre</h3>
         <div class="box-body">
           <a href="<?=base_url().'index.php/admin/chapter/add_new_chapter'; ?>" class="btn btn-danger" style="margin-bottom: 10px;">Ajouter un chapitre</a>
-          <table id="website" class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Date de début</th>
-                <th>Numéro du chapitre</th>
-                <th>Cours</th>
-                <th>Edition</th>
-                <th>Suppression</th>
-                
-              </tr>
-            </thead>
-            <tbody>
-	        	<?php foreach($myLessons as $myLesson): ?>
-				<tr>
-					<td><?=$myLesson->id_chapter;?></td>
-					<td><?=$myLesson->name_chapter?></td>
-					<td><?=$myLesson->begin_chapter?></td>
-					<td><?=$myLesson->num_chapter?></td>
-					<td><?=$myLesson->name_lesson?></td>
-					<td><a href="<?= base_url().'index.php/admin/chapter/edit/'.$myLesson->id_chapter; ?>">Editer</a></td>
-					<td><a href="<?= base_url().'index.php/admin/chapter/delete/'.$myLesson->id_chapter; ?>">Suppression</a></td>
-					
-  				</tr>	
-	        	<?php endforeach; ?>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Date de début</th>
-                <th>Numéro du chapitre</th>
-                <th>Cours</th>
-                <th>Edition</th>
-                <th>Suppression</th>
-              </tr>
-            </tfoot>
-          </table>
+          <?php
+            $this->table->set_heading('#', 'Nom', 'Date de début','Numéro du chapitre','Cours','Édition','Suppression');
+            foreach($myLessons as $myLesson) {
+                $this->table->add_row(
+                    $myLesson->id_chapter,
+                    $myLesson->name_chapter,
+                    $myLesson->begin_chapter,
+                    $myLesson->num_chapter,
+                    $myLesson->name_lesson,
+                    anchor('/admin/chapter/edit/'.$myLesson->id_chapter, 'Editer'),
+                    anchor('/admin/chapter/delete/'.$myLesson->id_chapter, 'Supprimmer')
+                );
+            } 
+            $this->table->add_row('#', 'Nom', 'Date de début','Numéro du chapitre','Cours','Édition','Suppression');
+            echo $this->table->generate();
+          ?>
+          
     </div>
     <div class="box-body">
     

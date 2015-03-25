@@ -17,10 +17,12 @@ class Chapter extends CI_Controller
 	}
 	public function index()
 	{
+        $this->load->library('table');
 		
 		$data['contenu'] = '/chapter/V_chapter';
 
         $data['myLessons'] = $this->M_chapter->get_Lesson();
+        
         $this->load->view('admin/base', $data); 
      }
 	public function add_new_chapter() {
