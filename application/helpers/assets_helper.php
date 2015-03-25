@@ -30,4 +30,5 @@ if ( ! function_exists('img')) {
         return '<img class="img-responsive" src="'.img_url($nom).'" alt="'.$alt.'" />';   
     }
 }
+
 ?>

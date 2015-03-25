@@ -91,3 +91,46 @@ Une figure est le plus souvent accompagnée d'une légende. Pour ajouter une lé
 <p>Si elle n'apporte aucune information et constitue seulement une illustration pour décorer : placez l'image dans un paragraphe. <br>
 Si elle apporte une information importante pour la bonne compréhension du texte: placez l'image dans une figure.
 </p>
+<p><strong>La balise &lt;figure&gt; a un rôle avant tout sémantique</strong>. Elle indique à l'ordinateur que l'image a du sens et peut permettre à un programme de récupérer toutes les figures du texte afin de les référencer (dans une table des figures par exemple).</p>
+<strong>Une figure peut très bien comporter plusieurs images :</strong>
+<pre><?= htmlentities('<figure>
+<img src="images/internetexplorer.png" alt="Logo Internet Explorer" />
+<img src="images/firefox.png" alt="Logo Mozilla Firefox" />
+<img src="images/chrome.png" alt="Logo Google Chrome" />
+<figcaption>Logos des différents navigateurs</figcaption>
+</figure>'); ?></pre>
+<h2>Créer une image cliquable</h2>
+<?= htmlentities('<a href="http://www.mondetigres.com"> <img src="tigre.jpg"> </a>'); ?></pre>
+<h2>Supprimer la bordure d'un lien graphique</h2>
+<p>Lorsque vous créez une image cliquable, le navigateur crée automatiquement un cadre (bleu ou violet) autour de l’image pour montrer qu’il s’agit d’un lien. C’est le langage CSS qui permettra de supprimer ce type de décoration sur plusieurs images.  En attendant, indiquez la mention suivante :</p>
+<pre><?= htmlentities('<a href="http://www.mondetigres.com"> <img src="tigre.jpg" border="0"> </a>'); ?></pre>
+<h2>Les images Maps</h2>
+<p>La balise &lt;map&gt; (=carte en français) sert à définir des zones réactives (zones déterminées comme étant cliquables) sur une seule image afin d'insérer plusieurs liens sur une même surface.  Cette technique impose de calculer les coordonnées de chacun des coins de chaque map, ce qui n’est pas chose évidente.<br>
+Les balises img et map étant en ligne, elle doivent être contenues dans un paragraphe </p>
+<pre><?= htmlentities('<p>
+<img src="04_images/00.jpg" height="500" width="1850" usemap="#imageMap" alt="image scout"/>
+</p>'); ?></pre>
+<p>La balise correspondant au nom spécifié dans l'attribut USEMAP contient toutes les infos concernant les zones réactives (sensibles à la souris et pointant vers une destination interne ou externe) :</p>
+<pre><?= htmlentities('<map  name="imageMap" id="imageMapId">'); ?></pre>
+<p>name=le nom de la map, il doit être unique / id=id de la map (unique aussi), celui-ci n'a pas vraiment d'utilité, mais est obligatoire pour respecter les normes W3C. <br>
+Le conteneur &lt;map&gt; contient autant de balises &lt;area&gt; qu'il y a de zones réactives.
+</p>
+<pre><?= htmlentities('<area shape="circle" alt="site de la 256ème" title="" coords="1248,232,158" href="http://www.256rix.be" target="_blank" />
+<area shape="rect" alt="site de la sgp" title="" coords="362,244,736,502" href="http://www.sgp.be" target="_blank" />
+</map>
+</p>'); ?></pre>
+<p>A une zone réactive est associée une balise <AREA> dont les attributs sont SHAPE : le type de zone (cercle, rectangle ou polygone), COORDS : les coordonnées de la zone (séparées par des virgules), HREF : l'adresse destination, ALT : le commentaire qui apparaitra lorsque le curseur de la souris passera sur la zone et TITLE : le titre du lien.</p>
+<h2>Le format SVG</h2>
+<p>JPG, PNG et GIF sont des formats d’images bitmaps (composés de pixels) tandis que <span class="infobulle" data-toggle="tooltip" data-placement="bottom" title="Élaboré à partir de 1998 par un groupe de travail comprenant entre autre IBM, Apple, Microsoft, Xerox.">SVG</span>  (Scalable Vector Graphics) est un format vectoriel (basé sur le langage de balisage XML), construit à partir de formes géométriques. <br>
+Les avantages de ce format sont la légerté et elles sont étirables sans perte de qualité.  Spécifié par le W3C, il est libre et interagit avec les différents langages qui composent nos pages web.
+</p>
+<h3>Intégrer SVG à sa page web</h3>
+<p>Il y a différentes possibilités plus ou moins pratiques et plus ou moins supportées, afin d'intégrer du SVG dans une page web, en voici deux :</p>
+<strong>La balise &lt;img&gt;</strong>
+<p>Approprié pour une utilisation basique. Accompagnée d’une utilisation de Javascript cette méthode est à éviter car cette balise n'a pas été faite pour accueillir des comportements scriptés.</p>
+<pre><?= htmlentities('<img src="image.svg" alt="Une image en SVG">'); ?></pre>
+<strong>Par CSS</strong>
+<p>On peut inclure ce format dans une propriété CSS comme un background.</p>
+<pre><?= htmlentities('.fonddepage {
+    background : url("fond.svg") no-repeat left left ;
+}'); ?></pre>
