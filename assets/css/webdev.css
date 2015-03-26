@@ -12,6 +12,10 @@
 .jeremy .arrowToModif{margin-top:10%;}
 /*--------------------FIN-JEREMY----------------------------------------------------*/
 /*--------------------Quentin----------------------------------------------------*/
+    /*NAVBAR*/
+.navbar{
+    margin-bottom: 25px;
+}
 .navbar img{
     width: auto;
     height: 45px;
@@ -36,18 +40,35 @@
 .menu div.form-group{
     margin-right: 50px;
 }
-
+    /*NAVBAR*/
+    /*TABLEAU CHAPITRE*/
+div.panel-default{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
 table.chapter td{
-    padding: 0 0 0 10px!important;
+    width: 45%;
+    border-bottom: solid 1px gainsboro;
+}
+
+table.chapter td:first-child{
+    width: 10%;
+}
+
+table.chapter td:last-child{
+    text-align: right;
 }
 
 table.chapter td p{
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 table.chapter td a{
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-right: 5px;
 }
+    /*TABLEAU CHAPITRE*/
 /*--------------------FIN-quentin----------------------------------------------------*/
