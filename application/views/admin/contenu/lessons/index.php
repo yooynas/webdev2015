@@ -28,7 +28,6 @@
                   	$lesson->firstname_teacher.' '.$lesson->lastname_teacher
                 );
             } 
-           
             echo $this->table->generate();
           ?>
     </div>
