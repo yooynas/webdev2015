@@ -48,12 +48,12 @@ div.panel-default{
     width: 70%;
 }
 table.chapter td{
-    width: 45%;
+    width: 46%;
     border-bottom: solid 1px gainsboro;
 }
 
 table.chapter td:first-child{
-    width: 10%;
+    width: 6%;
 }
 
 table.chapter td:last-child{
