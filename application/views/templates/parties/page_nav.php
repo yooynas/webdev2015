@@ -24,12 +24,27 @@
         </li>
       </ul>
       <div class="nav navbar-nav navbar-right">
-          <form class="navbar-form navbar-right inline-form">
+          <?=form_open('search/mysearch',$attr = array('class'=>'nav navbar-nav navbar-right')); ?>
             <div class="form-group">
-              <input type="search" class="input-sm form-control col-lg-3" placeholder="Recherche">
-              <button type="submit" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button>
+              <?php
+              $data = array(
+              'classe' => 'input-sm form-control col-lg-3',
+              'placeholder' => 'Recherche',
+              'name' => 'search',
+              'type' => 'search'
+              ); 
+              echo form_input($data);
+              $data2 = array(
+              'type' => 'submit',
+              'class' => 'btn btn-default btn-sm',
+              'name' => 'submit',
+              'content' => '<span class="fa fa-search"></span>'
+              );
+              echo form_button($data2);
+              ?>
+              
             </div>
-          </form>
+          <?= form_close();?>
 
     </div><!-- /input-group -->
     </div><!-- /.navbar-collapse -->

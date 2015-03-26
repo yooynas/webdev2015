@@ -7,7 +7,7 @@ class M_lessons extends MY_Model {
 
         $this->table_name = 'lessons';
         $this->primary_key = 'id_lesson';
-        $this->table_order = 'id_lesson DESC';
+        $this->table_order = 'id_lesson ASC';
     }
     
     
