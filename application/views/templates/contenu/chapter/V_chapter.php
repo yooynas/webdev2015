@@ -5,7 +5,7 @@ foreach ($chapter as $i)
 {
 ?>
 <div class="panel-heading">
-    <span class="name" style="display:inline-block"><?= $i['name_chapter']; ?>.</span>
+    <span class="name"><?= $i['name_chapter']; ?>.</span>
     <span class="begin pull-right">Débute le : <?= $i['begin_chapter']; ?></span>
 </div>
 <?php 

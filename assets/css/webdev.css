@@ -12,6 +12,12 @@
 .jeremy .arrowToModif{margin-top:10%;}
 /*--------------------FIN-JEREMY----------------------------------------------------*/
 /*--------------------Quentin----------------------------------------------------*/
+    /*BODY*/
+body{
+    position: relative;
+    min-height: 100%;
+}
+    /*BODY*/
     /*NAVBAR*/
 .navbar{
     margin-bottom: 25px;
@@ -71,4 +77,10 @@ table.chapter td a{
     margin-right: 5px;
 }
     /*TABLEAU CHAPITRE*/
+    /*FOOTER*/
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
 /*--------------------FIN-quentin----------------------------------------------------*/
